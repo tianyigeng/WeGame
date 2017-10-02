@@ -15,7 +15,7 @@ to install.
 
 ### Set up
 
-For briefty, we all use the same user for the MySQL database:
+For briefty, we'll NOT set up ACL to the database and use the following credentials for the MySQL database:
 
 - username=root
 - password=admin
