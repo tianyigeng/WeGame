@@ -17,9 +17,9 @@ to install.
 
 For briefty, we all use the same user for the MySQL database:
 
-username=root
-password=admin
+- username=root
+- password=admin
 
 Execute `init_db.sh` to start the SQL server locally (with credentials above).
 
-**Note:** You must execute `init_db.sh` in order to execute `data/rebuild_database.py`.
+**Note:** You must execute `init_db.sh` first in order to execute `data/rebuild_database.py`.
