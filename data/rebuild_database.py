@@ -1,14 +1,18 @@
 # Script to reconstruct the database from scratch.
 
-import sqlite3
+import MySQLdb
 import os
 
 def main():
-  db_path = '/tmp/wegame.db'
-  RemoveDbIfExists(db_path)
-
-  connection = sqlite3.connect(db_path)
+  connection = MySQLdb.connect(host='localhost',    # your host, usually localhost
+                               user='root',        # your username
+                               passwd='admin',      # your password
+                               db='WeGame')         # name of the database
   cursor = connection.cursor()
+
+  cursor.execute('''
+    DROP TABLE IF EXISTS USER, GAME, PLAY_GAME, FRIENDSHIP
+  ''')
 
   cursor.execute('''
     CREATE TABLE USER(
@@ -47,12 +51,8 @@ def main():
 
   connection.commit()
   connection.close()
-  print 'Database setup finished! db_path=%s' % db_path
 
-def RemoveDbIfExists(db_path):
-  command = 'rm -f %s' % db_path
-  print 'Executing: %s' % command
-  os.system(command)
+  print 'Rebuild database successfully!'
 
 if __name__ == '__main__':
   main()

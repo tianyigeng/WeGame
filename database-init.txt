@@ -1,0 +1,2 @@
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('admin');
+CREATE DATABASE IF NOT EXISTS WeGame;
