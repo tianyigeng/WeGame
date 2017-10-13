@@ -1,5 +1,16 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
+import MySQLdb
 
 def home(request):
-  return HttpResponse("UserID: 10086x   Name: Donald Trump")
+  connection = MySQLdb.connect(host='localhost',    # your host, usually localhost
+                               user='root',        # your username
+                               passwd='Admin!2017',      # your password
+                               db='WeGame')         # name of the database
+  cursor = connection.cursor()
+  cursor.execute('''
+    SELECT uid, name FROM USER LIMIT 1
+  ''')
+  data = cursor.fetchone()
+
+  return HttpResponse(data)
