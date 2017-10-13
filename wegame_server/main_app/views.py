@@ -14,4 +14,4 @@ def home(request):
   data = cursor.fetchone()
   uid, name = data
 
-  return HttpResponse('UserID: %s\nName: %s' % uid, name)
+  return HttpResponse('UserID: %s\nName: %s' % (uid, name))
