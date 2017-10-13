@@ -12,5 +12,6 @@ def home(request):
     SELECT uid, name FROM USER LIMIT 1
   ''')
   data = cursor.fetchone()
+  uid, name = data
 
-  return HttpResponse(data)
+  return HttpResponse('UserID: %s\nName: %s' % uid, name)
