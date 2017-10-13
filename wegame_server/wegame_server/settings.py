@@ -25,7 +25,7 @@ SECRET_KEY = 'yc&xd4*#y2360m^%*=2i&#wmztx)l)j*r+a)1o8s=hoy7%!^u$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['fa17-cs411-47.cs.illinois.edu']
 
 
 # Application definition
