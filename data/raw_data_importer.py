@@ -8,9 +8,7 @@ import game_info
 #   [uid, name]
 # 2. PLAY_GAME list:
 #   [uid, gid, duration_played]
-def ParseSteam200k():
-  game_dict = game_info.ReadGameMetadataFromVgsales()
-
+def ParseSteam200k(game_dict):
   user_list = set()
   play_game_list = []
 
@@ -30,5 +28,12 @@ def ParseSteam200k():
       play_game_list.append( (uid, game_dict[game_name][0], hours) )
   return list(user_list), play_game_list
 
+def IngestToDatabase():
+  game_dict = game_info.ReadGameMetadataFromVgsales()
+  user_list, play_game_list = ParseSteam200k(game_dict)
+  game_list = game_dict.values()
+
+  print user_list, game_list, play_game_list
+
 if __name__ == '__main__':
-  print ParseSteam200k()
+  IngestToDatabase()
