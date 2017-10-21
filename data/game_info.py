@@ -1,8 +1,9 @@
 # Returns game metadata indexed by game name.
-# [name, genre, year, publisher, global_sales]
+# [id, name, genre, year, publisher, global_sales]
 def ReadGameMetadataFromVgsales():
   dataset_path = 'raw_data/vgsales.csv'
   games = {}
+  current_id = 0
   with open(dataset_path) as f:
     next(f) # skip the header row.
     for line in f:
@@ -17,7 +18,8 @@ def ReadGameMetadataFromVgsales():
         year = 0 # N/A
       publisher = splitted[5]
       global_sales = int(float(splitted[10]))
-      games[name] = (name, genre, year, publisher, global_sales)
+      games[name] = (str(current_id), name, genre, year, publisher, global_sales)
+      current_id += 1
   return games
 
 if __name__ == '__main__':
