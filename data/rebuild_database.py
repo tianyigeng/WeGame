@@ -2,6 +2,7 @@
 
 import MySQLdb
 import os
+import raw_data_importer
 
 def main():
   connection = MySQLdb.connect(host='localhost',    # your host, usually localhost
@@ -36,8 +37,7 @@ def main():
     CREATE TABLE PLAY_GAME(
       uid text,
       gid text,
-      duration_played int,
-      time_started int
+      duration_played int
     )
   ''')
 
@@ -48,6 +48,8 @@ def main():
       time_created int
     )
   ''')
+
+  raw_data_importer.IngestToDatabase(cursor)
 
   connection.commit()
   connection.close()

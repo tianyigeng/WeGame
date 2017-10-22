@@ -28,12 +28,31 @@ def ParseSteam200k(game_dict):
       play_game_list.append( (uid, game_dict[game_name][0], hours) )
   return list(user_list), play_game_list
 
-def IngestToDatabase():
+def IngestToDatabase(cursor):
   game_dict = game_info.ReadGameMetadataFromVgsales()
   user_list, play_game_list = ParseSteam200k(game_dict)
   game_list = game_dict.values()
 
-  print user_list, game_list, play_game_list
+  for game in game_list:
+    cursor.execute('''
+      INSERT INTO GAME
+      VALUES (%s, %s, %s, %s, %s, %s)
+    ''', game)
+  print len(game_list), 'rows in GAME ingested'
+
+  for user in user_list:
+    cursor.execute('''
+      INSERT INTO USER
+      VALUES (%s, %s)
+    ''', user)
+  print len(user_list), 'rows in USER ingested'
+
+  for play_game in play_game_list:
+    cursor.execute('''
+      INSERT INTO PLAY_GAME
+      VALUES (%s, %s, %s)
+    ''', play_game)
+  print len(play_game_list), 'rows in PLAY_GAME ingested'
 
 if __name__ == '__main__':
   IngestToDatabase()
