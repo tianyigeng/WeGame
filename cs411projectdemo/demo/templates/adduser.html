@@ -1,0 +1,40 @@
+
+<h1>Add User</h1>
+
+<!--
+    <form method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+-->
+
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <label for="InputUsername">Username</label>
+            <input type="text" class="form-control" name="username" id="InputUsername" placeholder="Enter username">
+            <small class="text-muted">We'll never share your username with anyone else.</small>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="InputPassword">Password</label>
+            <input type="password" class="form-control" name="password" id="InputPassword" placeholder="Password">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="Age">Age</label>
+            <input type="number" class="form-control" name="age" id="Age" placeholder="20">
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="School">School select</label>
+            <select class="form-control" id="School" name="school">
+                <option>SJTU</option>
+                <option>UIUC</option>
+            </select>
+        </fieldset>
+        <fieldset class="form-group">
+            <label for="InputFile">File input</label>
+            <input type="file" class="form-control-file" id="InputFile">
+            <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
