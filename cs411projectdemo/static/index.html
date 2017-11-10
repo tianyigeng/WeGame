@@ -1,0 +1,100 @@
+
+<html>
+    <head>
+        <title>Index</title>
+        <link rel="icon" type="image/png" href="/static/favicon.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <style>
+            .table td {
+                vertical-align: middle;
+            }
+        </style>
+        <!-- self js begin -->
+        <script src="/static/js/HttpPromiseAdapter.js" charset="utf-8"></script>
+        <script src="/static/js/Api.js" charset="utf-8"></script>
+        <script src="/static/js/IndexApp.js" charset="utf-8"></script>
+        <!-- self js end -->
+    </head>
+    <body>
+        <h1>Index</h1>
+        <div class="container">
+			<div id="accordion" role="tablist">
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingOne">
+                        <h5 class="mb-0">
+                            <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                List
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class=container>
+                                <table class="table table-inverse">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" role="tab" id="headingTwo">
+                        <h5 class="mb-0">
+                            <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Add
+                            </a>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class=container>
+                                <form method="POST" action="/adduser/">
+                                    <fieldset class="form-group">
+                                        <label for="InputUsername">Username</label>
+                                        <input type="text" class="form-control" name="username" id="InputUsername" placeholder="Enter username">
+                                        <small class="text-muted">We'll never share your username with anyone else.</small>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label for="InputPassword">Password</label>
+                                        <input type="password" class="form-control" name="password" id="InputPassword" placeholder="Password">
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label for="Age">Age</label>
+                                        <input type="number" class="form-control" name="age" id="Age" placeholder="20">
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label for="School">School select</label>
+                                        <select class="form-control" id="School" name="school">
+                                            <option>SJTU</option>
+                                            <option>UIUC</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset class="form-group">
+                                        <label for="InputFile">File input</label>
+                                        <input type="file" class="form-control-file" id="InputFile">
+                                        <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                                    </fieldset>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

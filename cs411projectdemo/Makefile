@@ -1,10 +1,10 @@
 
 
 run:
-	python manage.py runserver 0.0.0.0:8000
+	python2 manage.py runserver 0.0.0.0:8000
 
 migration:
-	python manage.py migrate
+	python2 manage.py migrate
 
 makemigration:
-	python manage.py makemigrations
+	python2 manage.py makemigrations

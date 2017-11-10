@@ -1,4 +1,4 @@
-"""cs411projectdemo URL Configuration
+"""cs411server URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -13,14 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.views.generic import TemplateView
 from django.conf.urls import url
-from django.contrib import admin
-from demo import views
+from snoopy import views
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^administrator/', views.administrator),
-    url(r'^adduser/$', views.adduser),
     url(r'^deleteuser/(?P<id>.*)$', views.deleteuser),
-    url(r'^userdetails/(?P<id>.*)$', views.userdetails),
-    url(r'^$', views.index),
+
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^GetUsers/$', views.GetUsers),
 ]
