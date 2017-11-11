@@ -11,6 +11,7 @@ from django.db import models
 
 
 class Friendship(models.Model):
+    id = models.IntegerField(primary_key = True)
     uid1 = models.TextField(blank=True, null=True)
     uid2 = models.TextField(blank=True, null=True)
     time_created = models.IntegerField(blank=True, null=True)
@@ -21,7 +22,7 @@ class Friendship(models.Model):
 
 
 class Game(models.Model):
-    gid = models.TextField(blank=True, null=True)
+    gid = models.IntegerField(primary_key = True)
     name = models.TextField(blank=True, null=True)
     genre = models.TextField(blank=True, null=True)
     year = models.IntegerField(blank=True, null=True)
@@ -34,8 +35,9 @@ class Game(models.Model):
 
 
 class PlayGame(models.Model):
-    uid = models.TextField(blank=True, null=True)
-    gid = models.TextField(blank=True, null=True)
+    sid = models.IntegerField(primary_key = True)
+    uid = models.IntegerField(blank=True, null=True)
+    gid = models.IntegerField(blank=True, null=True)
     duration_played = models.IntegerField(blank=True, null=True)
 
     class Meta:
