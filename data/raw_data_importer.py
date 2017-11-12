@@ -8,11 +8,12 @@ import game_info
 #   [uid, name]
 # 2. PLAY_GAME list:
 #   [uid, gid, duration_played]
+import os
 def ParseSteam200k(game_dict):
   user_list = set()
   play_game_list = []
-
-  steam_200k_filename = 'raw_data/steam-200k.csv'
+  current_path = os.getcwd()
+  steam_200k_filename = current_path + '/data/raw_data/steam-200k.csv'
   with open(steam_200k_filename) as f:
     for line in f:
       splitted = line.split(',')

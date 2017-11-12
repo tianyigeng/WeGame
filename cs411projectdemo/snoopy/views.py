@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.http import Http404
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import HttpResponseRedirect
-from models import User
-from models import Game
-from models import Friendship
-from models import PlayGame
+from snoopy.models import User
+from snoopy.models import Game
+from snoopy.models import Friendship
+from snoopy.models import PlayGame
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -40,7 +42,7 @@ def addUser(request):
 
 @csrf_exempt
 def GetUsers(request):
-    users = User.objects.all().values()[:10]
+    users = User.objects.all().values()
     resp = JsonResponse(list(users), safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
@@ -54,8 +56,8 @@ def userInfoFriends(request,id):
 
 @csrf_exempt
 def listGame(request):
-    games = Game.objects.all().values()[:10]
-    resp = JsonResponse(list(games), safe=False)
+    games = Game.objects.all().values()
+    resp = JsonResponse({'result':list(games)}, safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 

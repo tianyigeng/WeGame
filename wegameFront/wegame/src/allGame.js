@@ -66,18 +66,21 @@ class allGame extends React.Component {
     }
 
     next(event) {
-        let div = document.getElementById("thisPageGame");
-        div.innerHTML="";
-        let p = this.state.page;
-        this.setState({page :p+1});
-        this.setState({pageResult:[]});
-        let i =(p+1)*20;
-        for (i = (p+1)*20; i < (p+1)*20+20; i++){
-            let temp = this.state.pageResult;
-            console.log(this.state.allResult[i]);
-            temp.push(this.state.allResult[i]);
-            this.setState({pageResult:temp});
+        if(this.state.page !== this.state.maxpage){
+            let div = document.getElementById("thisPageGame");
+            div.innerHTML="";
+            let p = this.state.page;
+            this.setState({page :p+1});
+            this.setState({pageResult:[]});
+            let i =(p+1)*20;
+            for (i = (p+1)*20; i < (p+1)*20+20; i++){
+                let temp = this.state.pageResult;
+                console.log(this.state.allResult[i]);
+                temp.push(this.state.allResult[i]);
+                this.setState({pageResult:temp});
+            }
         }
+
 
 
     }

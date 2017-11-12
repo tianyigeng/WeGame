@@ -12,47 +12,11 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import MainPage from '../src/mainPage';
 import Recommendation from '../src/recommendation';
 import allGame from '../src/allGame';
-import User from '../src/USER';
-import SignUp from'../src/signup'
+import UserPage from './userPage';
 
-
-/*
-class Popup extends React.Component {
-    render() {
-        return (
-            <div className='popup'>
-                <div className='popup_inner'>
-                    <h1>Login to WeGame</h1>
-                    <p className="inTitle">UserName:</p> <input type="text" placeholder="User name"/><br/><br/><br/>
-                    <p className="inTitle">Password:</p> <input type="text" placeholder="Password"/><br/><br/><br/>
-
-
-                    <button onClick={this.props.closePopup}>Submit</button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button onClick={this.props.closePopup}><a href={'/SignUp'}>Sign In</a></button>
-
-
-                </div>
-            </div>
-        );
-    }
-}
-*/
 
 class Game extends React.Component {
-    /*
-    constructor() {
-        super();
-        this.state = {
-            showPopup: false
-        };
-    }
-    togglePopup() {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
-    }
-*/
+
     render() {
         return (
             <Router  history="">
@@ -72,6 +36,7 @@ class Game extends React.Component {
 
                         <div className = 'game'>
                             <Route exact path="/" component={MainPage}/>
+                            <Route path="/detail/:uid"  component={UserPage}/>
                             <Route path="/Recommendation" component={Recommendation}/>
                             <Route path="/MainPage" component={MainPage}/>
                             <Route path="/AllGame" component={allGame}/>
