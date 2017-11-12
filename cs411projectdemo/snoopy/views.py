@@ -5,10 +5,10 @@ from django.http import Http404
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import HttpResponseRedirect
-from snoopy.models import User
-from snoopy.models import Game
-from snoopy.models import Friendship
-from snoopy.models import PlayGame
+from models import User
+from models import Game
+from models import Friendship
+from models import PlayGame
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -40,13 +40,15 @@ def addUser(request):
 
 @csrf_exempt
 def GetUsers(request):
-    users = User.objects.all().values()[:20]
+    users = User.objects.all().values()
     return JsonResponse(list(users), safe=False)
 
 @csrf_exempt
 def listGame(request):
-    games = Game.objects.all().values()
-    return JsonResponse(list(games), safe=False)
+    games = Game.objects.all().values()[:10]
+    resp = JsonResponse(list(games), safe=False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @csrf_exempt 
 def userInfo(request, id):
