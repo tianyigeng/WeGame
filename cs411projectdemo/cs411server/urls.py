@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^deleteuser/(?P<id>.*)$', views.deleteuser),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
     url(r'^listGame/$',views.listGame),
-    url(r'^addUser/(?P<id>.*)$',views.addUser),
+    url(r'^addUser/$',views.addUser),
     url(r'^userInfoGames/(?P<id>.*)$',views.userInfoGames),
     url(r'^userInfoFriends/(?P<id>.*)$', views.userInfoFriends),
     url(r'^addFriend/$', views.addFriend),

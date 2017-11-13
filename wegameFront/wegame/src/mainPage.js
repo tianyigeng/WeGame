@@ -23,6 +23,7 @@ class MainPage extends React.Component {
 
         this.signup = this.signup.bind(this);
         this.handleName = this.handleName.bind(this);
+        this.handlePassword = this.handlePassword.bind(this);
 
     }
 
@@ -30,18 +31,27 @@ class MainPage extends React.Component {
         this.setState({name: event.target.value});
     }
 
-    signup(event) {
+    handlePassword(event){
+        this.setState({password: event.target.value});
+    }
 
-        let url = "http://0.0.0.0:8000/addUser/"+this.state.name;
-        axios.get(url)
+    signup(event) {
+        axios({
+                url: 'http://0.0.0.0:8000/addUser/',
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data:{idname:this.state.name, password:this.state.password},
+            }
+        )
             .then((response) => {
                 console.log("success");
-                this.setState({result:JSON.stringify(response.data)})
             })
             .catch((error) => {
-                alert(error);
+                //alert(error);
                 console.log("error");
             });
+
+
 
     }
 
@@ -54,34 +64,24 @@ class MainPage extends React.Component {
 
                 <div className="inputDiv">
 
-                    <div class="row marketing">
-                        <div class="col-lg-6 logsign">
+                    <div className="row marketing">
+                        <div className="LogOrSign">
                             <form class="form-signin">
-                                <h3>Log in</h3>
+                                <h3>LogIn Or SignUp</h3>
                                 <br/>
-                                <input id="inputName" class="form-control" placeholder="UserId" required />
+                                <input id="inputName" class="form-control" placeholder="UserId" required onChange={this.handleName}/>
                                 <br/>
-                                <input id="inputPassword" class="form-control" placeholder="Password" required/>
+                                <input id="inputPassword" class="form-control" placeholder="Password" required onChange={this.handlePassword}/>
                                 <br/>
-                                <button className="btn btn-info" >Sign Up</button>
+                                <Link to={{ pathname: "/user/"+this.state.name}}><button className="btn btn-info" >Log In</button></Link>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button className="btn btn-info" onClick={this.signup}>Sign Up</button>
                             </form>
+                            <br/>
 
-
-                        </div>
-                        <div class="col-lg-6">
-                            <form class="form-signin">
-                                <h3>Sign up</h3>
-                                <br/>
-                                <input value={this.state.name}  id="signName" type="text" class="form-control" placeholder="Name" onChange={this.handleName}  required />
-                                <br/>
-                                <input id="signPassword" class="form-control" placeholder="Password" required/>
-                                <br/>
-                                <Link to={{ pathname: "/user/"+this.state.name, param1:this.state.name}}><button className="btn btn-info" onClick={this.signup}>Sign Up</button></Link>
-                            </form>
                         </div>
                     </div>
                 </div>
-
 
             </div>
         );

@@ -9,15 +9,27 @@ from __future__ import unicode_literals
 
 from django.db import models
 
-
-class Friendship(models.Model):
-    id = models.AutoField(primary_key = True)
-    uid1 = models.TextField(blank=True, null=True)
-    uid2 = models.TextField(blank=True, null=True)
-    #time_created = models.IntegerField(blank=True, null=True)
+class User(models.Model):
+    uid = models.TextField(primary_key=True, unique=True)
+    name = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
+        db_table = 'USER'
+
+
+class Friendship(models.Model):
+    uid1 = models.TextField(primary_key = True)
+    uid2 = models.TextField(primary_key = True)
+    time_created = models.IntegerField(blank=True, null=True)
+
+    #uid1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name="+", db_column='uid1')
+    #uid2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name="+", db_column='uid2')
+
+
+
+    class Meta:
+        managed = True
         db_table = 'FRIENDSHIP'
 
 
@@ -45,10 +57,4 @@ class PlayGame(models.Model):
         db_table = 'PLAY_GAME'
 
 
-class User(models.Model):
-    uid = models.AutoField(primary_key=True)
-    name = models.TextField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'USER'

@@ -9,3 +9,17 @@ body {
     height: 200px;
     width: 400px;
 }
+
+.LogOrSign{
+    margin: auto;
+}
+
+#inputName{
+    margin: auto;
+    width: 200px;
+}
+
+#inputPassword{
+    margin: auto;
+    width: 200px;
+}

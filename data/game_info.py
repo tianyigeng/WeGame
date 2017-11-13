@@ -3,7 +3,7 @@
 import os
 def ReadGameMetadataFromVgsales():
   current_path = os.getcwd()
-  dataset_path = current_path + '/data/raw_data/vgsales.csv'
+  dataset_path = current_path + '/raw_data/vgsales.csv'
   games = {}
   current_id = 0
   with open(dataset_path) as f:
