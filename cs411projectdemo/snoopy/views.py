@@ -12,7 +12,8 @@ from snoopy.models import Game
 from snoopy.models import Friendship
 from snoopy.models import PlayGame
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core import serializers
+from django.forms.models import model_to_dict
 
 import json
 from django.http import JsonResponse
@@ -35,10 +36,11 @@ def deleteuser(request, id):
             return HttpResponse(e.message)
 
 @csrf_exempt 
-def addUser(request):
-    username = request.POST["name"]
-    create = User.objects.create(name = username)
-    return HttpResponseRedirect("/")
+def addUser(request,id):
+    create = User.objects.create(name = id)
+    resp = JsonResponse({'name':id}, safe=False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @csrf_exempt
 def GetUsers(request):
@@ -48,9 +50,31 @@ def GetUsers(request):
     return resp
 
 @csrf_exempt
+def GetFriends(request):
+    friend = Friendship.objects.all().values()
+    resp = JsonResponse(list(friend), safe=False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
+
+@csrf_exempt
 def userInfoFriends(request,id):
-    fss = Friendship.objects.filter(uid1 = id)
+    user = User.objects.get(uid = id)
+    fss = Friendship.objects.filter(uid1 = user)
+
+    return JsonResponse(list(fss), safe = False)
+
+    """
     resp = JsonResponse([model_to_dict(fs.uid2) for fs in fss], safe = False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
+    """
+
+
+@csrf_exempt
+def userInfo(request,id):
+    user = User.objects.get(uid = id).values()
+    jsonUser = json.load(user)
+    resp = JsonResponse(jsonUser, safe = False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 
@@ -74,12 +98,22 @@ def userInfoGames(request, id):
 
 @csrf_exempt
 def addFriend(request):
+    if request.method == 'POST':
+        jsonBody = json.loads(request.body)
+        user1 = jsonBody['uid1']
+        user2 = jsonBody['uid2']
+        create = Friendship.objects.create(uid1=user1, uid2=user2)
+        resp = JsonResponse([], safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
+    """
     user1 = request.POST["uid1"]
     user2 = request.POST["uid2"]
     create = Friendship.objects.create(uid1 = user1, uid2 = user2)
     resp = JsonResponse([], safe = False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
+    """
 
 @csrf_exempt
 def deleteFriend(request):

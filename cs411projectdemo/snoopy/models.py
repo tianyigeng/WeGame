@@ -11,10 +11,10 @@ from django.db import models
 
 
 class Friendship(models.Model):
-    id = models.IntegerField(primary_key = True)
+    id = models.AutoField(primary_key = True)
     uid1 = models.TextField(blank=True, null=True)
     uid2 = models.TextField(blank=True, null=True)
-    time_created = models.IntegerField(blank=True, null=True)
+    #time_created = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False

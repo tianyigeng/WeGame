@@ -13,7 +13,7 @@ import MainPage from '../src/mainPage';
 import Recommendation from '../src/recommendation';
 import allGame from '../src/allGame';
 import UserPage from './userPage';
-
+import allUsers from './allUsers';
 
 class Game extends React.Component {
 
@@ -30,17 +30,17 @@ class Game extends React.Component {
                             <Nav>
                                 <NavItem href={'/AllGame'}>All Games</NavItem>
                                 <NavItem href={'/Recommendation'}>Recommendations</NavItem>
-
+                                <NavItem href={'/AllUser'}>CheckAllUsers</NavItem>
                             </Nav>
                         </Navbar>
 
                         <div className = 'game'>
                             <Route exact path="/" component={MainPage}/>
-                            <Route path="/detail/:uid"  component={UserPage}/>
+                            <Route path="/user/:uname"  component={UserPage}/>
                             <Route path="/Recommendation" component={Recommendation}/>
                             <Route path="/MainPage" component={MainPage}/>
                             <Route path="/AllGame" component={allGame}/>
-
+                            <Route path="/AllUser" component={allUsers}/>
                         </div>
 
 
