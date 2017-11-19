@@ -45,6 +45,7 @@ def main():
     CREATE TABLE FRIENDSHIP(
       uid1 text,
       uid2 text,
+      is_starred int,
       time_created int
     )
   ''')
