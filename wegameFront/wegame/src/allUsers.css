@@ -1,0 +1,11 @@
+body {
+    font: 14px "Century Gothic", Futura, sans-serif;
+    text-align: center;
+}
+
+.allUsers{
+    text-align: left;
+    margin-top: 20px ;
+    margin-left: 200px;
+}
+
