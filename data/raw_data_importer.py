@@ -2,6 +2,7 @@
 
 import data_util
 import game_info
+import math
 
 # Parse the steam-200k.csv, returns 2 lists:
 # 1. USER list:
@@ -55,5 +56,40 @@ def IngestToDatabase(cursor):
     ''', play_game)
   print len(play_game_list), 'rows in PLAY_GAME ingested'
 
+def BuildRecommendation():
+  game_dict = game_info.ReadGameMetadataFromVgsales()
+  _, play_game_list = ParseSteam200k(game_dict)
+
+  def _similarity(d1, d2):
+    product = 0
+    for k1, v1 in d1.iteritems():
+      if k1 in d2:
+        product += 1
+    return (product + 0.0) / math.sqrt(\
+      (sum(v**2 for _, v in d1.iteritems())) * \
+      (sum(v**2 for _, v in d2.iteritems())))
+
+  # user_dict[uid] -> profile
+  # profile[gid] -> hours
+  user_dict = {}
+  for item in play_game_list:
+    uid, gid, hours = item
+    if uid not in user_dict:
+      user_dict[uid] = {}
+    user_dict[uid][gid] = hours + 1
+  
+  uids = [k for k in user_dict]
+  result = []
+  for i in range(len(uids)):
+    for j in range(i + 1, len(uids)):
+      uid1 = uids[i]
+      uid2 = uids[j]
+      sim_computed = _similarity(user_dict[uid1], user_dict[uid2])
+      if sim_computed < 0.5:
+        continue
+      result.append( (uid1, uid2, sim_computed) )
+
+  return result
+
 if __name__ == '__main__':
-  IngestToDatabase()
+  BuildRecommendation()
