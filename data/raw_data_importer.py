@@ -13,6 +13,7 @@ import os
 def ParseSteam200k(game_dict):
   user_list = set()
   play_game_list = []
+  unmatched = []
   current_path = os.getcwd()
   steam_200k_filename = current_path + '/raw_data/steam-200k.csv'
   with open(steam_200k_filename) as f:
@@ -22,17 +23,17 @@ def ParseSteam200k(game_dict):
         continue
       game_name = splitted[1].lstrip('"').strip('"')
       if game_name not in game_dict:
-        # TODO: handle this case.
+        unmatched.append(game_name)
         continue
       hours = int(float(splitted[3]))
       uid = splitted[0]
       user_list.add( (uid, data_util.GetRandomNameFromUserId(uid)) )
       play_game_list.append( (uid, game_dict[game_name][0], hours) )
-  return list(user_list), play_game_list
+  return list(user_list), play_game_list, unmatched
 
 def IngestToDatabase(cursor):
   game_dict = game_info.ReadGameMetadataFromVgsales()
-  user_list, play_game_list = ParseSteam200k(game_dict)
+  user_list, play_game_list, _ = ParseSteam200k(game_dict)
   game_list = game_dict.values()
 
   for game in game_list:
@@ -92,4 +93,7 @@ def BuildRecommendation():
   return result
 
 if __name__ == '__main__':
-  BuildRecommendation()
+  game_dict = game_info.ReadGameMetadataFromVgsales()
+  _, _, unmatched_list = ParseSteam200k(game_dict)
+  for item in unmatched_list:
+    print item
