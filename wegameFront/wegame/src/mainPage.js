@@ -11,6 +11,21 @@ import { Divider, Form, Label } from 'semantic-ui-react'
  */
 
 
+import MenuBar from './menuBar';
+
+class Popup extends React.Component {
+    render() {
+        return (
+            <div className='popup'>
+                <div className='popup_inner'>
+
+                    <h3>Sign Up Successfully, Welcome {this.props.name}!</h3>
+                    <Link to={"/user/"+this.props.name+"/Mainpage"} ><button type="button" className="btn btn-info" >My Page</button></Link>
+                </div>
+            </div>
+        );
+    }
+}
 
 
 
@@ -18,10 +33,11 @@ class MainPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name:'', password:'',result :''};
+        this.state = {name:'', password:'',showPopup :false};
 
 
         this.signup = this.signup.bind(this);
+        this.login = this.login.bind(this);
         this.handleName = this.handleName.bind(this);
         this.handlePassword = this.handlePassword.bind(this);
 
@@ -33,6 +49,14 @@ class MainPage extends React.Component {
 
     handlePassword(event){
         this.setState({password: event.target.value});
+
+    }
+
+    login(event){
+        if (this.state.name !== null && this.state.password !==null){
+
+            window.location = "/user/"+this.state.name+"/Mainpage";
+        }
     }
 
     signup(event) {
@@ -44,7 +68,7 @@ class MainPage extends React.Component {
             }
         )
             .then((response) => {
-                console.log("success");
+                this.setState({showPopup:true});
             })
             .catch((error) => {
                 //alert(error);
@@ -59,6 +83,9 @@ class MainPage extends React.Component {
     render() {
         return (
             <div className="MainPage">
+
+                <MenuBar wegame="/MainPage" allgame="/AllGame" recom="/Recommendation" logout={false}/>
+
                 <h1>We Game !</h1>
                 <p>Login or create an account for free</p>
 
@@ -67,20 +94,26 @@ class MainPage extends React.Component {
                     <div className="row marketing">
                         <div className="LogOrSign">
                             <form class="form-signin">
-                                <h3>LogIn Or SignUp</h3>
+                                <h3>Log In Or Sign Up</h3>
                                 <br/>
                                 <input id="inputName" class="form-control" placeholder="UserId" required onChange={this.handleName}/>
                                 <br/>
                                 <input id="inputPassword" class="form-control" placeholder="Password" required onChange={this.handlePassword}/>
                                 <br/>
-                                <Link to={{ pathname: "/user/"+this.state.name}}><button className="btn btn-info" >Log In</button></Link>
+
+                                <button type="button" className="btn btn-info" onClick={this.login}>Log In</button>
+
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button className="btn btn-info" onClick={this.signup}>Sign Up</button>
+                                <button type="button" className="btn btn-info" onClick={this.signup}>Sign Up</button>
                             </form>
                             <br/>
 
                         </div>
                     </div>
+                    {this.state.showPopup ?
+                        <Popup name = {this.state.name}/>
+                        : null
+                    }
                 </div>
 
             </div>

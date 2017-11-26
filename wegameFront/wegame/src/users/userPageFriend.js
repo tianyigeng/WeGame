@@ -9,8 +9,9 @@ import axios from 'axios';
  */
 
 
+import MenuBar from '../menuBar';
 
-class User extends React.Component {
+class userPageFriend extends React.Component {
 
     constructor(props) {
         super(props);
@@ -102,17 +103,16 @@ class User extends React.Component {
         return (
             <div className="User">
 
+
+                <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
+
                 <h1>{this.state.userInfo.uid}</h1>
                 <div className="row marketing">
                     <div className="col-lg-6 logsign">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
 
-                            <br/>
-                            <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
-                                &nbsp;&nbsp;&nbsp;<button className="btn btn-info" onClick={this.addFriend}>+</button></span>
 
-                            <br/>
                             <br/>
                             <ul className="friendList">
                             {this.state.friends.map((n)=>{
@@ -139,4 +139,4 @@ class User extends React.Component {
         );
     }
 }
-export default User
+export default userPageFriend

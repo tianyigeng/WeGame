@@ -3,10 +3,10 @@ import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import {IndexRoute, browserHistory} from 'react-router';
-import './allGame.css';
+import '../allGame.css';
 //import * as axios from "react-dom";
 import axios from 'axios';
-import games from './20games';
+import user20games from './user20games';
 
 /**
  * Created by dianazhang on 2017/10/20.
@@ -14,10 +14,10 @@ import games from './20games';
 
 
 
-import MenuBar from './menuBar'
+import MenuBar from '../menuBar';
 
 
-class allGame extends React.Component {
+class userAllGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0};
@@ -90,9 +90,12 @@ class allGame extends React.Component {
         return (
             <div className="games">
 
-                <MenuBar wegame="/MainPage" allgame="/AllGame" recom="/Recommendation"  logout={false}/>
+                <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}/>
+
 
                 <h1>All Games !</h1>
+
+
 
                 <div className="pageButton">
                     <Button className="pull-left" onClick={this.prev}>&#9668;</Button>
@@ -129,17 +132,4 @@ class allGame extends React.Component {
 }
 
 
-export default allGame
-/*
- {this.state.allResult.map((n)=>{
- return <div className="singeGame">
- <h3>{n.name}</h3>
- <span>Publisher: {n.publisher}</span>
- <br/>
- <span>Year: {n.year}</span>
- <br/>
- <span>Genre: {n.genre}</span>
-
- </div>
- })}
- */
+export default userAllGame

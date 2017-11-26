@@ -12,8 +12,11 @@ import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap';
 import MainPage from '../src/mainPage';
 import Recommendation from '../src/recommendation';
 import allGame from '../src/allGame';
-import UserPage from './userPage';
+import UserPage from '../src/users/userPage';
 import allUsers from './allUsers';
+import userAllGame from '../src/users/userAllGame'
+import userRecommendation from '../src/users/userRecommendation'
+
 
 class Game extends React.Component {
 
@@ -21,28 +24,17 @@ class Game extends React.Component {
         return (
             <Router  history="">
                 <div>
-                        <Navbar>
-                            <Navbar.Header>
-                                <Navbar.Brand>
-                                    <a href={'/MainPage'}>We Game</a>
-                                </Navbar.Brand>
-                            </Navbar.Header>
-                            <Nav>
-                                <NavItem href={'/AllGame'}>All Games</NavItem>
-                                <NavItem href={'/Recommendation'}>Recommendations</NavItem>
-                                <NavItem href={'/AllUser'}>CheckAllUsers</NavItem>
-                            </Nav>
-                        </Navbar>
-
-                        <div className = 'game'>
                             <Route exact path="/" component={MainPage}/>
-                            <Route path="/user/:uname"  component={UserPage}/>
                             <Route path="/Recommendation" component={Recommendation}/>
                             <Route path="/MainPage" component={MainPage}/>
                             <Route path="/AllGame" component={allGame}/>
                             <Route path="/AllUser" component={allUsers}/>
-                        </div>
 
+
+                    <Route path="/user/:uname/Mainpage"  component={UserPage}/>
+                    <Route path="/user/:uname/AllGame"  component={userAllGame}/>
+                    <Route path="/user/:uname/Recommendation"  component={userRecommendation}/>
+                    <Route path="/user/:uname/Friend/:ufriend"  component={userRecommendation}/>
 
                 </div>
             </Router>
