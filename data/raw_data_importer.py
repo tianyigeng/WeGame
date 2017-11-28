@@ -57,7 +57,7 @@ def IngestToDatabase(cursor):
     ''', play_game)
   print len(play_game_list), 'rows in PLAY_GAME ingested'
 
-def BuildRecommendation():
+def BuildRecommendation(cursor):
   game_dict = game_info.ReadGameMetadataFromVgsales()
   _, play_game_list = ParseSteam200k(game_dict)
 
@@ -90,7 +90,12 @@ def BuildRecommendation():
         continue
       result.append( (uid1, uid2, sim_computed) )
 
-  return result
+  for item in result:
+    cursor.execute('''
+      INSERT INTO RECOMMENDATION
+      VALUES (%s, %s, %s)
+    ''', item)
+  print len(result), 'recommendations ingested.'
 
 if __name__ == '__main__':
   game_dict = game_info.ReadGameMetadataFromVgsales()

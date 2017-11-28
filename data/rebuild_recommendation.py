@@ -7,7 +7,7 @@ import raw_data_importer
 def main():
   connection = MySQLdb.connect(host='localhost',    # your host, usually localhost
                                user='root',        # your username
-                               passwd='admin',      # your password
+                               passwd='Admin!2017',      # your password
                                db='WeGame')         # name of the database
   cursor = connection.cursor()
 
@@ -23,12 +23,12 @@ def main():
     )
   ''')
 
-  raw_data_importer.IngestToDatabase(cursor)
+  raw_data_importer.BuildRecommendation(cursor)
 
   connection.commit()
   connection.close()
 
-  print 'Rebuild database successfully!'
+  print 'Rebuild recommendation successfully!'
 
 if __name__ == '__main__':
   main()
