@@ -59,7 +59,7 @@ def IngestToDatabase(cursor):
 
 def BuildRecommendation(cursor):
   game_dict = game_info.ReadGameMetadataFromVgsales()
-  _, play_game_list = ParseSteam200k(game_dict)
+  _, play_game_list, _ = ParseSteam200k(game_dict)
 
   def _similarity(d1, d2):
     product = 0

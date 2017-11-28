@@ -1,2 +1,2 @@
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('admin');
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Admin!2017');
 CREATE DATABASE IF NOT EXISTS WeGame;

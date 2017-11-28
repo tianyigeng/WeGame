@@ -7,7 +7,7 @@ import raw_data_importer
 def main():
   connection = MySQLdb.connect(host='localhost',    # your host, usually localhost
                                user='root',        # your username
-                               passwd='admin',      # your password
+                               passwd='Admin!2017',      # your password
                                db='WeGame')         # name of the database
   cursor = connection.cursor()
 
