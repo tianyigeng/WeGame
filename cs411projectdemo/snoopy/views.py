@@ -111,6 +111,13 @@ def addFriend(request):
         create = Friendship.objects.create(uid1=user1, uid2=user2)
         return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
 
+@csrf_exempt
+def setup(request):
+    if request.method == 'POST':
+	jsonBody = json.loads(request.body)
+	username = jsonBody['uid']
+	password = jsonBody['name']
+	
 
 @csrf_exempt
 def deleteFriend(request):

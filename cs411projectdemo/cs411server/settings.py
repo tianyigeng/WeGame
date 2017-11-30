@@ -89,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'WeGame',
         'USER': 'root',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'Admin!2017',
         'HOST': 'localhost',
         'PORT': '',
     }
