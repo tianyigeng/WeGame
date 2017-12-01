@@ -33,7 +33,11 @@ class MainPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name:'', password:'',showPopup :false};
+        this.state = {name:'', password:'',showPopup:false,
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
+                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"
+
+        };
 
 
         this.signup = this.signup.bind(this);
@@ -62,9 +66,10 @@ class MainPage extends React.Component {
     signup(event) {
         //http://fa17-cs411-47.cs.illinois.edu:8000/addUser/
         //http://0.0.0.0:8000/addUser/
+
         if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !==""){
             axios({
-                    url: 'http://fa17-cs411-47.cs.illinois.edu:8000/addUser/',
+                    url: this.state.currUrl+"addUser/",
                     method: 'post',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data:{idname:this.state.name, password:this.state.password},
@@ -81,11 +86,12 @@ class MainPage extends React.Component {
         }
 
 
-
     }
 
 
     render() {
+
+
         return (
             <div className="MainPage">
 

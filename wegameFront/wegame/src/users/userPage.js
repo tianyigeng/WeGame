@@ -15,11 +15,19 @@ class User extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[],newFriends:"", temp:""};
+        this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[],newFriends:"", temp:"",
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
+                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
         //http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/
         //http://0.0.0.0:8000/userInfo/
-        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/"+this.props.match.params.uname)
+
+        if (window.location.href.indexOf("illinois") === -1){
+            this.setState({currUrl:"http://0.0.0.0:8000/"})
+        }
+
+
+        axios.get(this.state.currUrl + "userInfo/"+this.props.match.params.uname)
             .then((response) => {
                 let jsonuser = JSON.stringify(response.data);
                 this.setState({userInfo:JSON.parse(jsonuser)});
@@ -43,7 +51,8 @@ class User extends React.Component {
     getFriend(event){
         // http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/
         // http://0.0.0.0:8000/userInfoFriends/
-        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/"+this.props.match.params.uname)
+
+        axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.uname)
             .then((response) => {
                 this.setState({friends:response.data});
 
@@ -62,8 +71,10 @@ class User extends React.Component {
 
         //http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/
         //http://0.0.0.0:8000/deleteFriend/
-        axios({
-                url: 'http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/',
+
+        if(this.state.newFriends !==""){
+            axios({
+                url: this.state.currUrl+'deleteFriend/',
                 method: 'post',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data:{uid1:this.props.match.params.uname, uid2:event.target.value},
@@ -77,16 +88,19 @@ class User extends React.Component {
                 console.log("error");
             });
 
+        }
     }
+
 
     addFriend(event){
 
         //http://fa17-cs411-47.cs.illinois.edu:8000/addFriend/
         //http://0.0.0.0:8000/addFriend/
 
+
         if(this.state.newFriends !==""){
             axios({
-                    url: 'http://fa17-cs411-47.cs.illinois.edu:8000/addFriend/',
+                    url: this.state.currUrl+'addFriend/',
                     method: 'post',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: {uid1:this.props.match.params.uname,uid2:this.state.newFriends},
@@ -117,6 +131,11 @@ class User extends React.Component {
 
                 <h1>{this.state.userInfo.uid}</h1>
                 <div className="row marketing">
+                    <div className="col-lg-6">
+                        <form className="form-signin">
+                            <h3>Game History:</h3>
+                        </form>
+                    </div>
                     <div className="col-lg-6 logsign">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
@@ -141,11 +160,7 @@ class User extends React.Component {
 
 
                     </div>
-                    <div class="col-lg-6">
-                        <form class="form-signin">
-                            <h3>Game History:</h3>
-                        </form>
-                    </div>
+
                 </div>
 
             </div>

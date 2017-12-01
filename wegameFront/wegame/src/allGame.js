@@ -23,8 +23,11 @@ class allGame extends React.Component {
     //http://0.0.0.0:8000/listGame/
     constructor(props) {
         super(props);
-        this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0};
-        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/listGame/")
+        this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0,
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
+                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
+
+        axios.get(this.state.currUrl+"listGame/")
             .then((response) => {
                 let jsonbody = JSON.stringify(response.data.result);
                 this.setState({allResult: JSON.parse(jsonbody)});

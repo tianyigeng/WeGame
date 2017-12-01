@@ -18,10 +18,12 @@ import axios from 'axios';
 class allGame extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {value:'', allUser:[]};
+        this.state = {value:'', allUser:[],
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
+                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
         //"http://fa17-cs411-47.cs.illinois.edu:8000/GetUsers/"
         //"http://0.0.0.0:8000/GetUsers/"
-        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/GetUsers/")
+        axios.get(this.state.currUrl+"GetUsers/")
             .then((response) => {
                 let jsonuser = JSON.stringify(response.data);
                 this.setState({allUser:JSON.parse(jsonuser)});

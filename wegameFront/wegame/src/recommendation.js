@@ -15,7 +15,9 @@ class Recommendation extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name:'', password:'',showPopup :false};
+        this.state = {name:'', password:'',showPopup :false,
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
+                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
 
         this.signup = this.signup.bind(this);
@@ -46,7 +48,7 @@ class Recommendation extends React.Component {
         //http://0.0.0.0:8000/addUser/
         if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !=="") {
             axios({
-                    url: 'http://fa17-cs411-47.cs.illinois.edu:8000/addUser/',
+                    url: this.state.currUrl+'addUser/',
                     method: 'post',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: {idname: this.state.name, password: this.state.password},
@@ -72,12 +74,12 @@ class Recommendation extends React.Component {
                 <p>Log in or Sign up to see the personal recommendation for you! </p>
                 <div className="row marketing">
                     <div className="LogOrSign">
-                        <form class="form-signin">
+                        <form className="form-signin">
                             <h3>Log In Or Sign Up</h3>
                             <br/>
-                            <input id="inputName" class="form-control" placeholder="UserId" required onChange={this.handleName}/>
+                            <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>
                             <br/>
-                            <input id="inputPassword" class="form-control" placeholder="Password" required onChange={this.handlePassword}/>
+                            <input id="inputPassword" className="form-control" placeholder="Password" required onChange={this.handlePassword}/>
                             <br/>
 
                             <button type="button" className="btn btn-info" onClick={this.login}>Log In</button>
