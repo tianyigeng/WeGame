@@ -28,6 +28,13 @@ body {
     display:inline;
 }
 
+.game{
+    text-align: left;
+    list-style-type: none;
+}
+.gameList{
+    margin-left: 100px;
+}
 
 .friend{
     margin-left: -40px;
@@ -36,6 +43,7 @@ body {
 }
 
 .friendList{
+
     margin: auto;
     width: 240px;
 }

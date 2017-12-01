@@ -17,17 +17,13 @@ class User extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[],newFriends:"", temp:"",
+        this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[], gamesName:[], gamesGenre:[], gamesID:[],
+            newFriends:"", temp:"",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
         //http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/
         //http://0.0.0.0:8000/userInfo/
-
-        if (window.location.href.indexOf("illinois") === -1){
-            this.setState({currUrl:"http://0.0.0.0:8000/"})
-        }
-
 
         axios.get(this.state.currUrl + "userInfo/"+this.props.match.params.uname)
             .then((response) => {
@@ -41,12 +37,16 @@ class User extends React.Component {
             });
 
 
+
+
         this.getFriend();
+        this.getGame();
 
         this.addFriend = this.addFriend.bind(this);
         this.handleFriend = this.handleFriend.bind(this);
         this.getFriend = this.getFriend.bind(this);
         this.deleteFriend = this.deleteFriend.bind(this);
+        this.getGame = this.getGame.bind(this);
 
     }
 
@@ -57,6 +57,22 @@ class User extends React.Component {
         axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.uname)
             .then((response) => {
                 this.setState({friends:response.data});
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+    }
+
+    getGame(event){
+        // http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/
+        // http://0.0.0.0:8000/userInfoFriends/
+
+        axios.get(this.state.currUrl + "userInfoGames/"+this.props.match.params.uname)
+            .then((response) => {
+                let gameinfos = JSON.stringify(response.data);
+                this.setState({games: JSON.parse(gameinfos) });
 
             })
             .catch((error) => {
@@ -133,7 +149,18 @@ class User extends React.Component {
                 <h1>{this.state.userInfo.uid}</h1>
                 <div>
                     <div className="col-md-7 gamehistory">
-                        <h3>Game History:</h3>
+                        <h2>Game History:</h2>
+                        <br/> <br/>
+                        <ul className="gameList">
+                            {this.state.games.map((n)=>{
+                                return <li className="game">
+                                    <h4>{n["name"]}</h4>
+                                    <p>Genre:{n["genre"]} </p>
+                                    <br/><br/>
+                                </li>
+
+                            })}
+                        </ul>
                         <br/>
                     </div>
                     <div className="col-sm-4 friendarea">
@@ -142,7 +169,7 @@ class User extends React.Component {
 
                             <br/>
                             <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
-                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="button" onClick={this.addFriend}>+</Button></span>
+                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="submmit" onClick={this.addFriend}>+</Button></span>
 
                             <br/>
                             <br/>
