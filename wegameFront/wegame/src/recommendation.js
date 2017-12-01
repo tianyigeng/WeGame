@@ -42,21 +42,24 @@ class Recommendation extends React.Component {
     }
 
     signup(event) {
-        axios({
-                url: 'http://0.0.0.0:8000/addUser/',
-                method: 'post',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data:{idname:this.state.name, password:this.state.password},
-            }
-        )
-            .then((response) => {
-                this.setState({showPopup:true});
-            })
-            .catch((error) => {
-                //alert(error);
-                console.log("error");
-            });
-
+        //http://fa17-cs411-47.cs.illinois.edu:8000/addUser/
+        //http://0.0.0.0:8000/addUser/
+        if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !=="") {
+            axios({
+                    url: 'http://fa17-cs411-47.cs.illinois.edu:8000/addUser/',
+                    method: 'post',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data: {idname: this.state.name, password: this.state.password},
+                }
+            )
+                .then((response) => {
+                    this.setState({showPopup: true});
+                })
+                .catch((error) => {
+                    //alert(error);
+                    console.log("error");
+                });
+        }
 
 
     }

@@ -19,7 +19,9 @@ class allGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value:'', allUser:[]};
-        axios.get("http://0.0.0.0:8000/GetUsers/")
+        //"http://fa17-cs411-47.cs.illinois.edu:3000"
+        //"http://0.0.0.0:8000/GetUsers/"
+        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000")
             .then((response) => {
                 let jsonuser = JSON.stringify(response.data);
                 this.setState({allUser:JSON.parse(jsonuser)});
