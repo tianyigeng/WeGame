@@ -23,10 +23,6 @@ class Friendship(models.Model):
     uid2 = models.TextField(primary_key = True)
     time_created = models.IntegerField(blank=True, null=True)
 
-    #uid1 = models.ForeignKey(User, on_delete=models.CASCADE, related_name="+", db_column='uid1')
-    #uid2 = models.ForeignKey(User, on_delete=models.CASCADE, related_name="+", db_column='uid2')
-
-
 
     class Meta:
         managed = True
@@ -47,9 +43,9 @@ class Game(models.Model):
 
 
 class PlayGame(models.Model):
-    sid = models.IntegerField(primary_key = True)
-    uid = models.IntegerField(blank=True, null=True)
-    gid = models.IntegerField(blank=True, null=True)
+    #sid = models.IntegerField(primary_key = True)
+    uid = models.TextField(primary_key = True, blank=True)
+    gid = models.TextField(primary_key = True, blank=True)
     duration_played = models.IntegerField(blank=True, null=True)
 
     class Meta:

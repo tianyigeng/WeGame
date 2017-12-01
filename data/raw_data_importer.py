@@ -28,6 +28,8 @@ def ParseSteam200k(game_dict):
         continue
       hours = int(float(splitted[3]))
       uid = splitted[0]
+
+      # create user info into user table
       newname = data_util.GetRandomNameFromUserId(uid)
       if newname not in user_name:
         user_name.add(newname)
@@ -41,6 +43,7 @@ def ParseSteam200k(game_dict):
         user_name.add(newname)
         user_list.add((newname,uid))
 
+      # play game list
       play_game_list.append( (newname, game_dict[game_name][0], hours) )
   return list(user_list), play_game_list, unmatched
 
@@ -68,7 +71,10 @@ def IngestToDatabase(cursor):
       INSERT INTO PLAY_GAME
       VALUES (%s, %s, %s)
     ''', play_game)
+
+    print "play_game: ",play_game
   print len(play_game_list), 'rows in PLAY_GAME ingested'
+
 
 def BuildRecommendation(cursor):
   game_dict = game_info.ReadGameMetadataFromVgsales()
@@ -113,5 +119,6 @@ def BuildRecommendation(cursor):
 if __name__ == '__main__':
   game_dict = game_info.ReadGameMetadataFromVgsales()
   _, _, unmatched_list = ParseSteam200k(game_dict)
-  for item in unmatched_list:
-    print item
+
+  #for item in unmatched_list:
+  #  print item

@@ -63,19 +63,11 @@ def GetFriends(request):
     return resp
 
 @csrf_exempt
-def userInfoFriends(request,id):
-    user = User.objects.filter(uid = id).values()
-    thisUser = user[0]['uid']
-    friends = Friendship.objects.filter(uid1 = thisUser).values()
-    result = []
-    for f in list(friends):
-        result.append(f['uid2'])
-
-    resp = JsonResponse(list(result), safe=False)
+def GetPlayedGames(request):
+    played = PlayGame.objects.all().values()
+    resp = JsonResponse(list(played), safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
-
-
 
 @csrf_exempt
 def userInfo(request,id):
@@ -91,16 +83,45 @@ def listGame(request):
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 
-@csrf_exempt 
-def userInfoGames(request, id):
-    try:
-        user = User.objects.get(uid = id)
-    except:
-        return JsonResponse([], safe = False)
-    gss = PlayGame.objects.filter(uid = id)
-    resp = JsonResponse([model_to_dict(gs.gid) for gs in gss], safe=False)
+@csrf_exempt
+def userInfoFriends(request,id):
+    user = User.objects.filter(uid = id).values()
+    thisUser = user[0]['uid']
+    friends = Friendship.objects.filter(uid1 = thisUser).values()
+    result = []
+    for f in list(friends):
+        result.append(f['uid2'])
+
+    resp = JsonResponse(list(result), safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
+
+
+@csrf_exempt 
+def userInfoGames(request, id):
+    user = User.objects.filter(uid = id).values()
+
+    thisUser = user[0]['uid']
+    games = PlayGame.objects.filter(uid = thisUser).values()
+
+    gamesID = []
+    for g in list(games):
+        gamesID.append(g['gid'])
+
+    result = []
+    for gi in gamesID:
+        game = Game.objects.filter(gid = gi).values()
+        result.append({
+            "name":game[0]["name"],
+            "genre":game[0]["genre"],
+            "gid":game[0]["gid"]
+        })
+
+    resp = JsonResponse(list(result), safe=False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
+
+
 
 @csrf_exempt
 def addFriend(request):

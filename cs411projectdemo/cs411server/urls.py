@@ -19,6 +19,7 @@ from snoopy import views
 urlpatterns = [
     url(r'^GetUsers/$',views.GetUsers),
     url(r'^GetFriends/$',views.GetFriends),
+    url(r'^GetPlayedGames/$',views.GetPlayedGames),
     url(r'^userInfo/(?P<id>.*)$',views.userInfo),
     url(r'^deleteuser/(?P<id>.*)$', views.deleteuser),
     url(r'^$', TemplateView.as_view(template_name='index.html')),
@@ -29,6 +30,8 @@ urlpatterns = [
     url(r'^addFriend/$', views.addFriend),
     url(r'^deleteFriend/$',views.deleteFriend),
     url(r'^signIn/$',views.signin),
+
+
 
 
 ]
