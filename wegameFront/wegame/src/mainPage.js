@@ -98,7 +98,7 @@ class MainPage extends React.Component {
 
                     <div className="row marketing">
                         <div className="LogOrSign">
-                            <form class="form-signin">
+                            <form className="form-signin">
                                 <h3>Log In Or Sign Up</h3>
                                 <br/>
                                 <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>

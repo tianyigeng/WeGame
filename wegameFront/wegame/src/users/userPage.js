@@ -41,7 +41,9 @@ class User extends React.Component {
     }
 
     getFriend(event){
-        axios.get("http://0.0.0.0:8000/userInfoFriends/"+this.props.match.params.uname)
+        // http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/
+        // http://0.0.0.0:8000/userInfoFriends/
+        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/"+this.props.match.params.uname)
             .then((response) => {
                 this.setState({friends:response.data});
 
@@ -58,8 +60,10 @@ class User extends React.Component {
 
     deleteFriend(event){
 
+        //http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/
+        //http://0.0.0.0:8000/deleteFriend/
         axios({
-                url: 'http://0.0.0.0:8000/deleteFriend/',
+                url: 'http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/',
                 method: 'post',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                 data:{uid1:this.props.match.params.uname, uid2:event.target.value},
@@ -77,9 +81,12 @@ class User extends React.Component {
 
     addFriend(event){
 
+        //http://fa17-cs411-47.cs.illinois.edu:8000/addFriend/
+        //http://0.0.0.0:8000/addFriend/
+
         if(this.state.newFriends !==""){
             axios({
-                    url: 'http://0.0.0.0:8000/addFriend/',
+                    url: 'http://fa17-cs411-47.cs.illinois.edu:8000/addFriend/',
                     method: 'post',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: {uid1:this.props.match.params.uname,uid2:this.state.newFriends},
