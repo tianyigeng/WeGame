@@ -2,6 +2,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {IndexRoute, browserHistory} from 'react-router';
+
+import { Button } from 'reactstrap';
 import './userPage.css';
 import axios from 'axios';
 /**
@@ -72,8 +74,7 @@ class User extends React.Component {
         //http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/
         //http://0.0.0.0:8000/deleteFriend/
 
-        if(this.state.newFriends !==""){
-            axios({
+        axios({
                 url: this.state.currUrl+'deleteFriend/',
                 method: 'post',
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -89,7 +90,7 @@ class User extends React.Component {
             });
 
         }
-    }
+
 
 
     addFriend(event){
@@ -130,27 +131,26 @@ class User extends React.Component {
                 <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
 
                 <h1>{this.state.userInfo.uid}</h1>
-                <div className="row marketing">
-                    <div className="col-lg-6">
-                        <form className="form-signin">
-                            <h3>Game History:</h3>
-                        </form>
+                <div>
+                    <div className="col-md-7 gamehistory">
+                        <h3>Game History:</h3>
+                        <br/>
                     </div>
-                    <div className="col-lg-6 logsign">
+                    <div className="col-sm-4 friendarea">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
 
                             <br/>
                             <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
-                                &nbsp;&nbsp;&nbsp;<button className="btn btn-info" onClick={this.addFriend}>+</button></span>
+                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="button" onClick={this.addFriend}>+</Button></span>
 
                             <br/>
                             <br/>
                             <ul className="friendList">
                             {this.state.friends.map((n)=>{
                                 return <li className="friend">
-                                    <button className="btn pull-right btn-sm btn-outline-danger" value={n} onClick={this.deleteFriend}>-</button>
                                     {n}
+                                    <Button className="deletebutton pull-right" type="submmit" size="sm" value={n} onClick={this.deleteFriend}>-</Button>
                                     <br/><br/>
                                 </li>
 

@@ -4,26 +4,38 @@ body {
     margin: 20px;
 }
 
+.button{
+    color: #3d4652;
+    background-color: #fcfcfe;
+    border-radius: 0;
+
+}
+
+.deletebutton{
+    color: #fcfcfe;
+    background-color: #3d4652;
+    border-radius: 0;
+}
+
 .inputDiv{
-    margin: auto;
+
     height: 200px;
     width: 400px;
 }
 
 #friendId{
-    margin: auto;
     width: 200px;
     display:inline;
 }
 
 
-li{
-
+.friend{
+    margin-left: -40px;
     text-align: left;
     list-style-type: none;
 }
 
 .friendList{
-    margin-left: 125px;
-    width: 200px;
+    margin: auto;
+    width: 240px;
 }
