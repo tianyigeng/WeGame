@@ -6,12 +6,13 @@ import math
 
 # Parse the steam-200k.csv, returns 2 lists:
 # 1. USER list:
-#   [uid, name]
+#   [uid, name]  ==  [name, password]
 # 2. PLAY_GAME list:
 #   [uid, gid, duration_played]
 import os
 def ParseSteam200k(game_dict):
   user_list = set()
+  user_name = set()
   play_game_list = []
   unmatched = []
   current_path = os.getcwd()
@@ -27,8 +28,20 @@ def ParseSteam200k(game_dict):
         continue
       hours = int(float(splitted[3]))
       uid = splitted[0]
-      user_list.add( (uid, data_util.GetRandomNameFromUserId(uid)) )
-      play_game_list.append( (uid, game_dict[game_name][0], hours) )
+      newname = data_util.GetRandomNameFromUserId(uid)
+      if newname not in user_name:
+        user_name.add(newname)
+        user_list.add((newname, uid))
+      else:
+        i = 1
+        while (newname+uid[-i]) in user_name:
+          i+=1
+
+        newname = newname+'_'+uid[-i]
+        user_name.add(newname)
+        user_list.add((newname,uid))
+
+      play_game_list.append( (newname, game_dict[game_name][0], hours) )
   return list(user_list), play_game_list, unmatched
 
 def IngestToDatabase(cursor):
