@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0cad8a4-4891-4e79-806d-4ee67d6887d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/data_util.py" afterPath="$PROJECT_DIR$/data/data_util.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/raw_data_importer.py" afterPath="$PROJECT_DIR$/data/raw_data_importer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/rebuild_database.py" afterPath="$PROJECT_DIR$/data/rebuild_database.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data_util.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="data_util.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/data_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
+            <state relative-caret-position="217">
+              <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -81,11 +78,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="raw_data_importer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="raw_data_importer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/raw_data_importer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="10">
+              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
               <folding>
                 <element signature="e#67#83#0" expanded="true" />
                 <marker date="1512095169000" expanded="true" signature="1559:1613" ph="INSERT INTO GAME... " />
@@ -132,8 +129,8 @@
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/mainPage.css" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/menuBar.css" />
         <option value="$PROJECT_DIR$/data/rebuild_database.py" />
-        <option value="$PROJECT_DIR$/data/data_util.py" />
         <option value="$PROJECT_DIR$/data/raw_data_importer.py" />
+        <option value="$PROJECT_DIR$/data/data_util.py" />
       </list>
     </option>
   </component>
@@ -863,18 +860,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/data_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="65" column="10" lean-forward="true" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/raw_data_importer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+        <state relative-caret-position="10">
+          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
           <folding>
             <element signature="e#67#83#0" expanded="true" />
             <marker date="1512095169000" expanded="true" signature="1559:1613" ph="INSERT INTO GAME... " />
@@ -882,6 +871,14 @@
             <marker date="1512095169000" expanded="true" signature="1899:1946" ph="INSERT INTO PLAY_GAME... " />
             <marker date="1512095169000" expanded="true" signature="3013:3065" ph="INSERT INTO RECOMMENDATION... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/data_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="28" column="12" lean-forward="true" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
