@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {IndexRoute, browserHistory} from 'react-router';
 import './mainPage.css';
 import axios from 'axios';
-import {Button} from "semantic-ui-react";
+import { Button } from 'reactstrap';
 import { Divider, Form, Label } from 'semantic-ui-react'
 /**
  * Created by dianazhang on 2017/10/20.
@@ -53,27 +53,30 @@ class MainPage extends React.Component {
     }
 
     login(event){
-        if (this.state.name !== null && this.state.password !==null){
+        if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !==""){
 
             window.location = "/user/"+this.state.name+"/Mainpage";
         }
     }
 
     signup(event) {
-        axios({
-                url: 'http://0.0.0.0:8000/addUser/',
-                method: 'post',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data:{idname:this.state.name, password:this.state.password},
-            }
-        )
-            .then((response) => {
-                this.setState({showPopup:true});
-            })
-            .catch((error) => {
-                //alert(error);
-                console.log("error");
-            });
+        if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !==""){
+            axios({
+                    url: 'http://0.0.0.0:8000/addUser/',
+                    method: 'post',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data:{idname:this.state.name, password:this.state.password},
+                }
+            )
+                .then((response) => {
+                    this.setState({showPopup:true});
+                })
+                .catch((error) => {
+                    //alert(error);
+                    console.log("error");
+                });
+
+        }
 
 
 
@@ -96,15 +99,15 @@ class MainPage extends React.Component {
                             <form class="form-signin">
                                 <h3>Log In Or Sign Up</h3>
                                 <br/>
-                                <input id="inputName" class="form-control" placeholder="UserId" required onChange={this.handleName}/>
+                                <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>
                                 <br/>
-                                <input id="inputPassword" class="form-control" placeholder="Password" required onChange={this.handlePassword}/>
+                                <input id="inputPassword" className="form-control" placeholder="Password" required onChange={this.handlePassword}/>
                                 <br/>
 
-                                <button type="button" className="btn btn-info" onClick={this.login}>Log In</button>
+                                <Button className="button" type="button" onClick={this.login}>Log In</Button>
 
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button type="button" className="btn btn-info" onClick={this.signup}>Sign Up</button>
+                                <Button className="button" type="button" onClick={this.signup}>Sign Up</Button>
                             </form>
                             <br/>
 

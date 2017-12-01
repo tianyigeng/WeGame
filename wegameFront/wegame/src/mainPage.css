@@ -1,8 +1,15 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
+    color: #fcfcfe;
     text-align: center;
     margin: 20px;
 }
+
+.button{
+    color: #3d4652;
+    border-radius: 0;
+}
+
 
 .inputDiv{
     margin: auto;

@@ -1,6 +1,12 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
 
+    background-color: #75747f;
+    /*
+    background-image: url("./assest/backgroundImage.png");
+    background-attachment: fixed;
+    background-position: center;
+    */
     text-align: center;
     margin: 20px;
 }
