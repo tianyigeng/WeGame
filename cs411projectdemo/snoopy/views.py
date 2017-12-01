@@ -112,12 +112,16 @@ def addFriend(request):
         return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
 
 @csrf_exempt
-def setup(request):
+def signin(request):
     if request.method == 'POST':
 	jsonBody = json.loads(request.body)
 	username = jsonBody['uid']
 	password = jsonBody['name']
-	
+	user = User.objects.filter(uid=username, name=password)
+	if len(user) == 0 or user == None:
+	    return JsonResponse({'1':0}, safe=False)
+	else:
+	    return JsonResponse({'1':1}, safe=False)
 
 @csrf_exempt
 def deleteFriend(request):
