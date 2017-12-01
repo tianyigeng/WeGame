@@ -17,7 +17,9 @@ class User extends React.Component {
         super(props);
         this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[],newFriends:"", temp:""};
 
-        axios.get("http://0.0.0.0:8000/userInfo/"+this.props.match.params.uname)
+        //http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/
+        //http://0.0.0.0:8000/userInfo/
+        axios.get("http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/"+this.props.match.params.uname)
             .then((response) => {
                 let jsonuser = JSON.stringify(response.data);
                 this.setState({userInfo:JSON.parse(jsonuser)});
