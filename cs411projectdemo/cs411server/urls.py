@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^userInfoFriends/(?P<id>.*)$', views.userInfoFriends),
     url(r'^addFriend/$', views.addFriend),
     url(r'^deleteFriend/$',views.deleteFriend),
-    url(r'^signUp/$',views.setup),
+    url(r'^signIn/$',views.signin),
 
 
 ]
