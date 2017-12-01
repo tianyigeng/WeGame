@@ -72,7 +72,6 @@ def IngestToDatabase(cursor):
       VALUES (%s, %s, %s)
     ''', play_game)
 
-    print "play_game: ",play_game
   print len(play_game_list), 'rows in PLAY_GAME ingested'
 
 
