@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e0cad8a4-4891-4e79-806d-4ee67d6887d5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/recommendation.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/recommendation.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="allUsers.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="allUsers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -40,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recommendation.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="recommendation.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/recommendation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state relative-caret-position="64">
+              <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -122,10 +119,10 @@
         <option value="$PROJECT_DIR$/data/rebuild_database.py" />
         <option value="$PROJECT_DIR$/data/raw_data_importer.py" />
         <option value="$PROJECT_DIR$/data/data_util.py" />
-        <option value="$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/recommendation.js" />
+        <option value="$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js" />
       </list>
     </option>
   </component>
@@ -222,6 +219,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WeGame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wegameFront" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wegame" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -376,12 +399,12 @@
       <option name="presentableId" value="Default" />
       <updated>1510515110576</updated>
       <workItem from="1512082187494" duration="4032000" />
-      <workItem from="1512096107762" duration="216000" />
+      <workItem from="1512096107762" duration="440000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4248000" />
+    <option name="totallyTimeSpent" value="4472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="249" y="44" width="1198" height="791" extended-state="0" />
@@ -758,16 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allGame.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1186">
@@ -814,8 +827,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/recommendation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state relative-caret-position="64">
+          <caret line="32" column="54" lean-forward="true" selection-start-line="32" selection-start-column="54" selection-end-line="32" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allUsers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
