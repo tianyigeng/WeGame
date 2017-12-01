@@ -17,7 +17,7 @@ def main():
 
   cursor.execute('''
     CREATE TABLE USER(
-      uid text,
+      uid text ,
       name text
     )
   ''')
