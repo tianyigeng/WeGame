@@ -150,19 +150,25 @@ class User extends React.Component {
                 <div>
                     <div className="col-md-7 gamehistory">
                         <h2>Game History:</h2>
-                        <br/> <br/>
-                        <ul className="gameList">
-                            {this.state.games.map((n)=>{
-                                return <li className="game">
-                                    <h4>{n["name"]}</h4>
-                                    <p>Genre:{n["genre"]} </p>
-                                    <br/><br/>
-                                </li>
+                            <br/>
+                            <div className="gameDiv">
+                                <ul className="gameList">
+                                    {this.state.games.map((n)=>{
+                                        return <li className="game">
+                                            <h4>{n["name"]}</h4>
+                                            <p>Genre:{n["genre"]} </p>
+                                            <br/><br/>
+                                        </li>
 
-                            })}
-                        </ul>
+                                    })}
+                                </ul>
+                            </div>
+
                         <br/>
                     </div>
+
+
+
                     <div className="col-sm-4 friendarea">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
@@ -187,6 +193,8 @@ class User extends React.Component {
 
 
                     </div>
+
+                    <div id="blue">   </div>
 
                 </div>
 

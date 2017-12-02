@@ -25,7 +25,7 @@ class Game extends React.Component {
             <Router  history="">
                 <div>
                             <Route exact path="/" component={MainPage}/>
-                            <Route path="/Recommendation" component={Recommendation}/>
+                            <Route path="/Recommendation" component={MainPage}/>
                             <Route path="/MainPage" component={MainPage}/>
                             <Route path="/AllGame" component={allGame}/>
                             <Route path="/AllUser" component={allUsers}/>

@@ -1,3 +1,5 @@
+
+
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     color: #fcfcfe;
@@ -12,6 +14,14 @@ body {
 }
 
 
+.popup_inner{
+    width: 500px;
+    height: 200px;
+    background-color: #537fbb;
+    box-shadow: 10px 10px 5px #0f243a;
+
+}
+
 .inputDiv{
     margin: auto;
     height: 200px;
@@ -19,6 +29,7 @@ body {
 }
 
 .LogOrSign{
+
     margin: auto;
 }
 
@@ -30,4 +41,21 @@ body {
 #inputPassword{
     margin: auto;
     width: 200px;
+    display:inline;
 }
+
+#eye{
+    color: #3d4652;
+    margin-top: -5px;
+    margin-left: -31px;
+    width: 30px;
+    height: 30px;
+
+}
+
+.eyeicon{
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+

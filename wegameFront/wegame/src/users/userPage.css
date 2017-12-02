@@ -2,6 +2,7 @@ body {
     font: 14px "Century Gothic", Futura, sans-serif;
     text-align: center;
     margin: 20px;
+
 }
 
 .button{
@@ -28,13 +29,6 @@ body {
     display:inline;
 }
 
-.game{
-    text-align: left;
-    list-style-type: none;
-}
-.gameList{
-    margin-left: 100px;
-}
 
 .friend{
     margin-left: -40px;
@@ -46,4 +40,50 @@ body {
 
     margin: auto;
     width: 240px;
+}
+
+.friendarea{
+    height: 508px;
+    margin-left: 50px;
+    background-color:#96cfb9 ;
+    z-index: 10;
+    overflow: auto;
+}
+
+.game{
+    text-align: left;
+    list-style-type: none;
+}
+.gameList{
+    margin-left: 100px;
+}
+
+.gamehistory{
+
+    z-index: 10;
+
+}
+
+.gameDiv{
+    background-color: #ffeeb0;
+    color: #3d4652;
+    margin-left: 100px;
+    width: 550px;
+    height:400px;
+    overflow: auto;
+    padding-top: 20px;
+    z-index: 15;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* background area */
+
+#blue{
+    width: 600px;
+    height: 400px;
+    background-color: #54b9d3;
+    margin-left: -20px;
 }

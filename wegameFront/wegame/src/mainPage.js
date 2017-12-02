@@ -5,7 +5,12 @@ import {IndexRoute, browserHistory} from 'react-router';
 import './mainPage.css';
 import axios from 'axios';
 import { Button } from 'reactstrap';
-import { Divider, Form, Label } from 'semantic-ui-react'
+import FaEyeSlash from 'react-icons/lib/fa/eye-slash'
+import FaEye from 'react-icons/lib/fa/eye';
+
+import PasswordMask from 'react-password-mask';
+
+
 /**
  * Created by dianazhang on 2017/10/20.
  */
@@ -18,9 +23,10 @@ class Popup extends React.Component {
         return (
             <div className='popup'>
                 <div className='popup_inner'>
-
+                    <br/><br/>
                     <h3>Sign Up Successfully, Welcome {this.props.name}!</h3>
-                    <Link to={"/user/"+this.props.name+"/Mainpage"} ><button type="button" className="btn btn-info" >My Page</button></Link>
+                    <br/><br/>
+                    <Link to={"/user/"+this.props.name+"/Mainpage"} ><Button className="button" type="button" >My Page</Button></Link>
                 </div>
             </div>
         );
@@ -33,7 +39,7 @@ class MainPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name:'', password:'',showPopup:false,
+        this.state = {name:'', password:'',showPopup:false,view:false,
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"
 
@@ -55,6 +61,7 @@ class MainPage extends React.Component {
         this.setState({password: event.target.value});
 
     }
+
 
     login(event){
         if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !==""){
@@ -82,12 +89,8 @@ class MainPage extends React.Component {
                     //alert(error);
                     console.log("error");
                 });
-
         }
-
-
     }
-
 
     render() {
 
@@ -99,7 +102,6 @@ class MainPage extends React.Component {
 
                 <h1>We Game !</h1>
                 <p>Login or create an account for free</p>
-
                 <div className="inputDiv">
 
                     <div className="row marketing">
@@ -108,9 +110,12 @@ class MainPage extends React.Component {
                                 <h3>Log In Or Sign Up</h3>
                                 <br/>
                                 <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>
+
                                 <br/>
-                                <input id="inputPassword" className="form-control" placeholder="Password" required onChange={this.handlePassword}/>
-                                <br/>
+                                <span><input id="inputPassword" className="form-control" placeholder="Password" onChange={this.handlePassword} /></span>
+
+
+                                <br/> <br/>
 
                                 <Button className="button" type="button" onClick={this.login}>Log In</Button>
 
@@ -134,6 +139,14 @@ class MainPage extends React.Component {
 export default MainPage
 
 /*
+
+ <Button id="eye" type="button" onClick={this.view}>{
+ this.state.view ? <FaEye className="eyeicon"/> : <FaEyeSlash className="eyeicon"/>
+ }</Button>
+
+
+
+ <input id="inputPassword" className="form-control" placeholder="Password" required onChange={this.handlePassword} />
  axios.get("http://0.0.0.0:8000/addUser/"+this.state.name)
  .then((response) => {
  console.log("success");
