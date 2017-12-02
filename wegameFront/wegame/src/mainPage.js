@@ -100,38 +100,44 @@ class MainPage extends React.Component {
 
                 <MenuBar wegame="/MainPage" allgame="/AllGame" recom="/Recommendation" logout={false}/>
 
-                <h1>We Game !</h1>
-                <p>Login or create an account for free</p>
-                <div className="inputDiv">
+                <div className="weGame">
 
-                    <div className="row marketing">
-                        <div className="LogOrSign">
-                            <form className="form-signin">
-                                <h3>Log In Or Sign Up</h3>
-                                <br/>
-                                <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>
-
-                                <br/>
-                                <span><input id="inputPassword" className="form-control" placeholder="Password" onChange={this.handlePassword} /></span>
-
-
-                                <br/> <br/>
-
-                                <Button className="button" type="button" onClick={this.login}>Log In</Button>
-
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <Button className="button" type="button" onClick={this.signup}>Sign Up</Button>
-                            </form>
-                            <br/>
-
-                        </div>
+                    <div id="titleDiv">
+                        <h1>We Game !</h1>
+                        <p>Login or create an account for free</p>
+                        <br/>
                     </div>
-                    {this.state.showPopup ?
-                        <Popup name = {this.state.name}/>
-                        : null
-                    }
-                </div>
+                    <div id="inputDiv">
 
+                        <div className="row marketing">
+                            <div className="LogOrSign">
+                                <form className="form-signin">
+                                    <h3>Log In Or Sign Up</h3>
+                                    <br/>
+                                    <input id="inputName" className="form-control" placeholder="UserId" required onChange={this.handleName}/>
+
+                                    <br/>
+                                    <span><input id="inputPassword" className="form-control" placeholder="Password" onChange={this.handlePassword} /></span>
+
+
+                                    <br/><br/>
+
+                                    <Button className="button" type="button" onClick={this.login}>Log In</Button>
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <Button className="button" type="button" onClick={this.signup}>Sign Up</Button>
+                                </form>
+                                <br/>
+
+                            </div>
+                        </div>
+                        {this.state.showPopup ?
+                            <Popup name = {this.state.name}/>
+                            : null
+                        }
+                    </div>
+
+                </div>
             </div>
         );
     }

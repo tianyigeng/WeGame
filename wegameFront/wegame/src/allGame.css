@@ -4,7 +4,18 @@ body {
     margin: 20px;
 }
 
+.searchbutton{
+    margin-top: -5px;
 
+    color: #3d4652;
+    background-color: #96cfb9;
+    border-radius: 0;
+}
+
+#searchInput{
+    width: 300px;
+    display: inline;
+}
 
 .singeGame{
     width: 600px;
@@ -20,7 +31,6 @@ body {
     float: right;
     position: fixed;
     margin-top: 0;
-    z-index: 99;
 }
 
 .button{
@@ -32,46 +42,29 @@ body {
 /* category list */
 
 .catbutton{
-    width: 100px;
+    width: 150px;
     height: 40px;
     text-align: left;
     color: #3d4652;
-    background-color: #fcfcfe;
+    background-color: #ffeeb0;
     border-radius: 0;
 }
 
 .category{
-    position: fixed;
-    height: 350px;
-    width: 600px;
-    margin-top: 80px;
-    padding: 10px;
-}
-
-.yellow{
-    margin-top: 80px;
-    width: 900px;
-    height: 350px;
-    position: fixed;
-    background-color: #ffeeb0;
-    z-index: -1;
-}
-
-.firstCate{
-    margin-top: 20px;
-    position: fixed;
+    height: 400px;
     width: 200px;
-    background-color: darksalmon;
-    z-index: 15;
+    float: right;
+    margin-right: 730px;
+    margin-top: -400px;
+    padding-left: 0;
+    z-index: 0;
 }
 
-.secondCate{
+
+.cateButton{
     margin-top: 20px;
-    margin-left: 200px;
-    position: fixed;
-    width: 200px;
-    background-color: coral;
-    z-index: 15;
+    width: 350px;
+    z-index: 0;
 }
 
 
@@ -84,18 +77,17 @@ li{
 #thisPageGame{
     width: 70%;
     margin: auto;
-    z-index: 10;
+    z-index: 20;
 }
 
 .pageGames{
     float: right;
-
     margin-right: 0;
     width: 750px;
     background-color: #54b9d3;
     overflow-y: scroll;
-    height: 470px;
-    z-index: 10;
+    height: 500px;
+    z-index: 20;
 }
 
 ::-webkit-scrollbar {

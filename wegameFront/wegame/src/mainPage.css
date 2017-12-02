@@ -12,7 +12,9 @@ body {
     background-color: #fcfcfe;
     border-radius: 0;
 }
-
+.MainPage{
+    height: 600px;
+}
 
 .popup_inner{
     width: 500px;
@@ -22,10 +24,24 @@ body {
 
 }
 
-.inputDiv{
-    margin: auto;
-    height: 200px;
+.weGame{
+    height: 400px;
+}
+
+#inputDiv{
+    margin: -180px auto;
+    height: 250px;
     width: 400px;
+    color: #3d4652;
+    background-color:#ffeeb0;
+}
+
+#titleDiv{
+    margin: auto;
+    padding-top: 10px;
+    width: 50%;
+    height: 300px;
+    background-color: #54b9d3;
 }
 
 .LogOrSign{
