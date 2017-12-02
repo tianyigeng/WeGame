@@ -138,11 +138,16 @@ def signin(request):
 	jsonBody = json.loads(request.body)
 	username = jsonBody['uid']
 	password = jsonBody['name']
-	user = User.objects.filter(uid=username, name=password)
-	if len(user) == 0 or user == None:
-	    return JsonResponse({'1':0}, safe=False)
-	else:
-	    return JsonResponse({'1':1}, safe=False)
+	user = User.objects.filter(uid=username).values()
+
+    if len(user) == 0 or user == None:
+        return JsonResponse({'login':0}, safe=False)
+
+    elif user[0]['name'] != password:
+        return JsonResponse({'login':1}, safe=False)
+
+    else:
+        return JsonResponse({'login':2}, safe=False)
 
 @csrf_exempt
 def deleteFriend(request):
