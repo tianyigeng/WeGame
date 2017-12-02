@@ -6,7 +6,6 @@ import {IndexRoute, browserHistory} from 'react-router';
 import './allGame.css';
 //import * as axios from "react-dom";
 import axios from 'axios';
-import games from './games30';
 
 /**
  * Created by dianazhang on 2017/10/20.

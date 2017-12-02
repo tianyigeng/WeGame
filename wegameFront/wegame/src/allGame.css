@@ -4,6 +4,8 @@ body {
     margin: 20px;
 }
 
+
+
 .singeGame{
     width: 600px;
     height: 100px;
@@ -13,12 +15,12 @@ body {
 
 .pageButton{
 
-    width: 700px;
-    height: 50px;
-    margin-top: 0;
-    margin-left: 500px;
-    z-index: 5;
+    width: 750px;
+    height: 40px;
+    float: right;
     position: fixed;
+    margin-top: 0;
+    z-index: 99;
 }
 
 .button{
@@ -27,6 +29,58 @@ body {
     border-radius: 0;
 }
 
+/* category list */
+
+.catbutton{
+    width: 100px;
+    height: 40px;
+    text-align: left;
+    color: #3d4652;
+    background-color: #fcfcfe;
+    border-radius: 0;
+}
+
+.category{
+    position: fixed;
+    height: 350px;
+    width: 600px;
+    margin-top: 80px;
+    padding: 10px;
+}
+
+.yellow{
+    margin-top: 80px;
+    width: 900px;
+    height: 350px;
+    position: fixed;
+    background-color: #ffeeb0;
+    z-index: -1;
+}
+
+.firstCate{
+    margin-top: 20px;
+    position: fixed;
+    width: 200px;
+    background-color: darksalmon;
+    z-index: 15;
+}
+
+.secondCate{
+    margin-top: 20px;
+    margin-left: 200px;
+    position: fixed;
+    width: 200px;
+    background-color: coral;
+    z-index: 15;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+
+/* game list */
 #thisPageGame{
     width: 70%;
     margin: auto;
@@ -34,11 +88,14 @@ body {
 }
 
 .pageGames{
-    margin-left: 500px;
-    width: 700px;
+    float: right;
+
+    margin-right: 0;
+    width: 750px;
     background-color: #54b9d3;
     overflow-y: scroll;
     height: 470px;
+    z-index: 10;
 }
 
 ::-webkit-scrollbar {
