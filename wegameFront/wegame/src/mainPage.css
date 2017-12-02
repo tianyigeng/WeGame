@@ -15,7 +15,9 @@ body {
 .MainPage{
     height: 600px;
 }
-
+#message{
+    color: tomato;
+}
 .popup_inner{
     width: 500px;
     height: 200px;
@@ -30,7 +32,7 @@ body {
 
 #inputDiv{
     margin: -180px auto;
-    height: 250px;
+    height: 270px;
     width: 400px;
     color: #3d4652;
     background-color:#ffeeb0;

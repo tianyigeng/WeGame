@@ -39,7 +39,7 @@ class MainPage extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {name:'', password:'',showPopup:false,view:false,
+        this.state = {name:'', password:'',showPopup:false,view:false, check: -1, message:"",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"
 
@@ -66,7 +66,39 @@ class MainPage extends React.Component {
     login(event){
         if (this.state.name !== null && this.state.name !== "" && this.state.password !==null && this.state.password !==""){
 
-            window.location = "/user/"+this.state.name+"/Mainpage";
+            axios({
+                    url: this.state.currUrl+"signIn/",
+                    method: 'post',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data:{uid:this.state.name, name:this.state.password},
+                }
+            )
+                .then((response) => {
+                    //this.setState({check:JSON.stringify(response.data)});
+                    let checkInfo = JSON.stringify(response.data);
+                    this.setState({check: JSON.parse(checkInfo)['login'] });
+
+                    if (parseInt(this.state.check) === 0){
+                        this.setState({message:"Nonexist User"})
+                    }
+
+                    else if (parseInt(this.state.check) === 1){
+                        this.setState({message:"Wrong Password"})
+                    }
+
+                    else if (parseInt(this.state.check) === 2){
+                        window.location = "/user/"+this.state.name+"/Mainpage";
+                    }
+
+                })
+                .catch((error) => {
+                    alert(error);
+                    console.log("error");
+                });
+
+
+
+            //
         }
     }
 
@@ -129,6 +161,7 @@ class MainPage extends React.Component {
                                 </form>
                                 <br/>
 
+                                <p id="message">{this.state.message}</p>
                             </div>
                         </div>
                         {this.state.showPopup ?
@@ -136,6 +169,8 @@ class MainPage extends React.Component {
                             : null
                         }
                     </div>
+
+
 
                 </div>
             </div>
