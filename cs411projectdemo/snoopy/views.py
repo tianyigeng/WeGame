@@ -141,13 +141,20 @@ def signin(request):
 	user = User.objects.filter(uid=username).values()
 
     if len(user) == 0 or user == None:
-        return JsonResponse({'login':0}, safe=False)
+
+        resp = JsonResponse({'login':0}, safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     elif user[0]['name'] != password:
-        return JsonResponse({'login':1}, safe=False)
+        resp = JsonResponse({'login': 1}, safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
 
     else:
-        return JsonResponse({'login':2}, safe=False)
+        resp = JsonResponse({'login': 2}, safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
 
 @csrf_exempt
 def deleteFriend(request):
