@@ -31,4 +31,5 @@ urlpatterns = [
     url(r'^deleteFriend/$',views.deleteFriend),
     url(r'^signIn/$',views.signin),
     url(r'^sameGenreGames/$',views.sameGenreGames),
+    url(r'^fuzzyQuery/$',views.fuzzyQuery),
 ]

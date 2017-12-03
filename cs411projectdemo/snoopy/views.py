@@ -146,6 +146,30 @@ def sameGenreGames(request):
 	return resp
 
 @csrf_exempt
+def fuzzyQuery(request):
+    if request.method == 'POST':
+	jsonBody = json.loads(request.body)
+	fuzzy = jsonBody['name']
+        games = Game.objects.all().values()
+        result = []
+        for game in games:
+	    if fuzzy in game['name']:
+	        result.append(game['gid'])
+        finalanswer = []
+        for eachgame in result:
+	    game = Game.objects.filter(gid = eachgame).values()
+            finalanswer.append({
+                "name":game[0]["name"],
+                "genre":game[0]["genre"],
+                "gid":game[0]["gid"],
+                "platform": game[0]["platform"],
+                "publisher": game[0]["publisher"]
+            })
+        resp = JsonResponse(list(finalanswer), safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
+
+@csrf_exempt
 def signin(request):
     if request.method == 'POST':
 	jsonBody = json.loads(request.body)
