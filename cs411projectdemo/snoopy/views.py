@@ -42,7 +42,9 @@ def addUser(request):
         jsonBody = json.loads(request.body)
         id = jsonBody['idname']
         password = jsonBody['password']
-        create = User.objects.create(uid = id, name = password)
+        status = User.objects.filter(uid = id).values() #find if the user has already existed
+	if len(status) == 0:
+            create = User.objects.create(uid = id, name = password)
         resp = JsonResponse({'id':id, 'password':password}, safe=False)
         resp['Access-Control-Allow-Origin'] = '*'
         return resp
@@ -86,12 +88,12 @@ def listGame(request):
 @csrf_exempt
 def userInfoFriends(request,id):
     user = User.objects.filter(uid = id).values()
-    thisUser = user[0]['uid']
-    friends = Friendship.objects.filter(uid1 = thisUser).values()
     result = []
-    for f in list(friends):
-        result.append(f['uid2'])
-
+    if len(user) != 0:
+        thisUser = user[0]['uid']
+        friends = Friendship.objects.filter(uid1 = thisUser).values()
+        for f in list(friends):
+            result.append(f['uid2'])
     resp = JsonResponse(list(result), safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
@@ -100,13 +102,12 @@ def userInfoFriends(request,id):
 @csrf_exempt 
 def userInfoGames(request, id):
     user = User.objects.filter(uid = id).values()
-
-    thisUser = user[0]['uid']
-    games = PlayGame.objects.filter(uid = thisUser).values()
-
     gamesID = []
-    for g in list(games):
-        gamesID.append(g['gid'])
+    if len(user) != 0:
+        thisUser = user[0]['uid']
+        games = PlayGame.objects.filter(uid = thisUser).values()
+        for g in list(games):
+            gamesID.append(g['gid'])
 
     result = []
     for gi in gamesID:
@@ -123,16 +124,26 @@ def userInfoGames(request, id):
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 
-
-
 @csrf_exempt
 def addFriend(request):
     if request.method == 'POST':
         jsonBody = json.loads(request.body)
         user1 = jsonBody['uid1']
         user2 = jsonBody['uid2']
-        create = Friendship.objects.create(uid1=user1, uid2=user2)
+        status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
+        if len(status) == 0:
+            create = Friendship.objects.create(uid1=user1, uid2=user2)
         return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
+
+@csrf_exempt
+def sameGenreGames(request):
+    if request.method == 'POST':
+	jsonBody = json.loads(request.body)
+	genre = jsonBody['genre']
+	games = Game.objects.filter(genre = genre).values()
+	resp = JsonResponse(list(games), safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+	return resp
 
 @csrf_exempt
 def signin(request):
