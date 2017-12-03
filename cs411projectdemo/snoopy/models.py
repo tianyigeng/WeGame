@@ -35,7 +35,7 @@ class Game(models.Model):
     genre = models.TextField(blank=True, null=True)
     year = models.IntegerField(blank=True, null=True)
     publisher = models.TextField(blank=True, null=True)
-    global_sales = models.IntegerField(blank=True, null=True)
+    platform = models.IntegerField(blank=True, null=True)
 
     class Meta:
         managed = False
