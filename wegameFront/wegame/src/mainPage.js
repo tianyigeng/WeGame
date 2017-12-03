@@ -8,7 +8,6 @@ import { Button } from 'reactstrap';
 import FaEyeSlash from 'react-icons/lib/fa/eye-slash'
 import FaEye from 'react-icons/lib/fa/eye';
 
-import PasswordMask from 'react-password-mask';
 
 
 /**
