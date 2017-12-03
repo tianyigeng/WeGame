@@ -2,6 +2,8 @@ import React from 'react';
 import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {IndexRoute, browserHistory} from 'react-router';
+
+import { Button } from 'reactstrap';
 import './userPage.css';
 import axios from 'axios';
 /**
@@ -11,17 +13,20 @@ import axios from 'axios';
 
 import MenuBar from '../menuBar';
 
-class userPageFriend extends React.Component {
+class UserFriend extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {userName:this.props.match.params.uname, userInfo:[], friends:[], games:[],newFriends:"", temp:"",
+        this.state = {userName:this.props.match.params.uname,friend:this.props.match.params.ufriend,
+            userInfo:[], friends:[], games:[],
+            newFriends:"", temp:"",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
         //http://fa17-cs411-47.cs.illinois.edu:8000/userInfo/
         //http://0.0.0.0:8000/userInfo/
-        axios.get(this.state.currUrl+"userInfo/"+this.props.match.params.uname)
+
+        axios.get(this.state.currUrl + "userInfo/"+this.props.match.params.ufriend)
             .then((response) => {
                 let jsonuser = JSON.stringify(response.data);
                 this.setState({userInfo:JSON.parse(jsonuser)});
@@ -34,16 +39,18 @@ class userPageFriend extends React.Component {
 
 
         this.getFriend();
+        this.getGame();
 
-        this.addFriend = this.addFriend.bind(this);
-        this.handleFriend = this.handleFriend.bind(this);
         this.getFriend = this.getFriend.bind(this);
-        this.deleteFriend = this.deleteFriend.bind(this);
+        this.getGame = this.getGame.bind(this);
 
     }
 
     getFriend(event){
-        axios.get(this.state.currUrl+"userInfoFriends/"+this.props.match.params.uname)
+        // http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/
+        // http://0.0.0.0:8000/userInfoFriends/
+
+        axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.ufriend)
             .then((response) => {
                 this.setState({friends:response.data});
 
@@ -54,54 +61,23 @@ class userPageFriend extends React.Component {
             });
     }
 
-    handleFriend(event){
-        this.setState({newFriends: event.target.value});
-    }
+    getGame(event){
+        // http://fa17-cs411-47.cs.illinois.edu:8000/userInfoFriends/
+        // http://0.0.0.0:8000/userInfoFriends/
 
-    deleteFriend(event){
-
-        axios({
-                url: this.state.currUrl + 'deleteFriend/',
-                method: 'post',
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                data:{uid1:this.props.match.params.uname, uid2:event.target.value},
-            }
-        )
+        axios.get(this.state.currUrl + "userInfoGames/"+this.props.match.params.ufriend)
             .then((response) => {
-                console.log("success");
+                let gameinfos = JSON.stringify(response.data);
+                this.setState({games: JSON.parse(gameinfos) });
+
             })
             .catch((error) => {
-                //alert(error);
+                alert(error);
                 console.log("error");
             });
-
     }
 
-    addFriend(event){
 
-        if(this.state.newFriends !==""){
-            axios({
-                    url: this.state.currUrl+'addFriend/',
-                    method: 'post',
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: {uid1:this.props.match.params.uname,uid2:this.state.newFriends},
-                }
-            )
-                .then((response) => {
-                    alert("success");
-
-                })
-                .catch((error) => {
-                    //alert(error);
-                    console.log("error");
-                });
-
-            this.getFriend();
-        }
-
-
-
-    }
 
     render() {
         return (
@@ -110,18 +86,38 @@ class userPageFriend extends React.Component {
 
                 <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
 
-                <h1>{this.state.userInfo.uid}</h1>
-                <div className="row marketing">
-                    <div className="col-lg-6 logsign">
+                <h1>{this.props.match.params.ufriend}</h1>
+                <div>
+                    <div className="col-md-7 gamehistory">
+                        <h2>Game History:</h2>
+                            <br/>
+                            <div className="gameDiv">
+                                <ul className="gameList">
+                                    {this.state.games.map((n)=>{
+                                        return <li className="game">
+                                            <h4>{n["name"]}</h4>
+                                            <p>Genre: {n["genre"]} </p>
+                                            <p>Platform: {n["platform"]} </p>
+                                            <p>Publisher: {n["publisher"]} </p>
+                                            <br/><br/>
+                                        </li>
+
+                                    })}
+                                </ul>
+                            </div>
+
+                        <br/>
+                    </div>
+
+
+
+                    <div className="col-sm-4 friendarea">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
-
-
                             <br/>
                             <ul className="friendList">
                             {this.state.friends.map((n)=>{
                                 return <li className="friend">
-                                    <button className="btn pull-right btn-sm btn-outline-danger" value={n} onClick={this.deleteFriend}>-</button>
                                     {n}
                                     <br/><br/>
                                 </li>
@@ -132,15 +128,13 @@ class userPageFriend extends React.Component {
 
 
                     </div>
-                    <div className="col-lg-6">
-                        <form className="form-signin">
-                            <h3>Game History:</h3>
-                        </form>
-                    </div>
+
+                    <div id="blue">   </div>
+
                 </div>
 
             </div>
         );
     }
 }
-export default userPageFriend
+export default UserFriend
