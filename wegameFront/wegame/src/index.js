@@ -16,6 +16,7 @@ import UserPage from '../src/users/userPage';
 import allUsers from './allUsers';
 import userAllGame from '../src/users/userAllGame'
 import userRecommendation from '../src/users/userRecommendation'
+import UserFriend from '../src/users/userPageFriend'
 
 
 class Game extends React.Component {
@@ -34,7 +35,7 @@ class Game extends React.Component {
                     <Route path="/user/:uname/Mainpage"  component={UserPage}/>
                     <Route path="/user/:uname/AllGame"  component={userAllGame}/>
                     <Route path="/user/:uname/Recommendation"  component={userRecommendation}/>
-                    <Route path="/user/:uname/Friend/:ufriend"  component={userRecommendation}/>
+                    <Route path="/user/:uname/Friend/:ufriend"  component={UserFriend}/>
 
                 </div>
             </Router>
