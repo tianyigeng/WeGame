@@ -114,7 +114,9 @@ def userInfoGames(request, id):
         result.append({
             "name":game[0]["name"],
             "genre":game[0]["genre"],
-            "gid":game[0]["gid"]
+            "gid":game[0]["gid"],
+            "platform": game[0]["platform"],
+            "publisher": game[0]["publisher"]
         })
 
     resp = JsonResponse(list(result), safe=False)
