@@ -17,7 +17,7 @@ def main():
 
   cursor.execute('''
     CREATE TABLE USER(
-      uid text ,
+      uid text,
       name text
     )
   ''')
@@ -29,7 +29,7 @@ def main():
       genre text,
       year int,
       publisher text,
-      global_sales int
+      platform text
     )
   ''')
 

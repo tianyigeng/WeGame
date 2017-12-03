@@ -5,27 +5,63 @@ def ReadGameMetadataFromVgsales():
   current_path = os.getcwd()
   dataset_path = current_path + '/raw_data/vgsales.csv'
   games = {}
+  names = set([])
   current_id = 0
-  with open(dataset_path) as f:
-    next(f) # skip the header row.
-    for line in f:
-      splitted = line.split(',')
-      if len(splitted) != 11:
-        continue
-      name = splitted[1]
-      genre = splitted[4]
-      try:
-        year = int(splitted[3])
-      except:
-        year = 0 # N/A
-      publisher = splitted[5]
-      global_sales = int(float(splitted[10]))
-      games[name] = (str(current_id), name, genre, year, publisher, global_sales)
-      current_id += 1
+  f = open(dataset_path)
+  next(f) # skip the header row.
+  for line in f:
+    splitted = line.split(',')
+    if len(splitted) < 6:
+      continue
+    oldname = splitted[1]
+    newname = oldname
+    i = 0
+    while newname in names:
+      i += 1
+      newname = oldname + " " + str(i)
+    genre = splitted[4]
+    try:
+      year = int(splitted[3])
+    except:
+      year = 0 # N/A
+    publisher = splitted[5]
+    platform = splitted[2]
+    names.add(newname)
+    games[newname] = (str(current_id), oldname, genre, year, publisher, platform)
+    current_id += 1
+
+  dataset_path2 = current_path + '/raw_data/crawl_games.csv'
+  f2 = open(dataset_path2)
+  next(f2) # skip the header row.
+  for line in f2:
+    splitted = line.split(',')
+    if len(splitted) != 5:
+      continue
+
+    oldname = splitted[0]
+    newname = oldname
+    i = 0
+    while newname in names:
+      i += 1
+      newname = oldname + " " + str(i)
+
+    genre = splitted[3]
+    try:
+      year = int(splitted[2])
+    except:
+      year = 0 # N/A
+
+    platform = splitted[1]
+    publisher = splitted[4]
+    names.add(newname)
+    games[newname] = (str(current_id), oldname, genre, year, publisher[:-2], platform)
+    current_id += 1
+
   return games
 
 if __name__ == '__main__':
   print ReadGameMetadataFromVgsales()
+
   # game_corpus = ReadGameMetadataFromVgsales()
   # steam_games = ReadGameNameFromSteam200k()
 
