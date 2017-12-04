@@ -43,9 +43,13 @@ def addUser(request):
         id = jsonBody['idname']
         password = jsonBody['password']
         status = User.objects.filter(uid = id).values() #find if the user has already existed
-	if len(status) == 0:
+        if len(status) == 0:
             create = User.objects.create(uid = id, name = password)
-        resp = JsonResponse({'id':id, 'password':password}, safe=False)
+            resp = JsonResponse({'id':id, 'password':password}, safe=False)
+
+        else:
+            resp = JsonResponse({'id': None, 'password': None}, safe=False)
+
         resp['Access-Control-Allow-Origin'] = '*'
         return resp
         # return HttpResponseRedirect('/user/'+str(id))
@@ -94,6 +98,8 @@ def userInfoFriends(request,id):
         friends = Friendship.objects.filter(uid1 = thisUser).values()
         for f in list(friends):
             result.append(f['uid2'])
+
+
     resp = JsonResponse(list(result), safe=False)
     resp['Access-Control-Allow-Origin'] = '*'
     return resp

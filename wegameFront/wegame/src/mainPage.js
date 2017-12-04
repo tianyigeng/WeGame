@@ -23,7 +23,7 @@ class Popup extends React.Component {
             <div className='popup'>
                 <div className='popup_inner'>
                     <br/><br/>
-                    <h3>Sign Up Successfully, Welcome {this.props.name}!</h3>
+                    <h3 style={{color:'#fcfcfe;'}}>Sign Up Successfully, Welcome {this.props.name}!</h3>
                     <br/><br/>
                     <Link to={"/user/"+this.props.name+"/Mainpage"} ><Button className="button" type="button" >My Page</Button></Link>
                 </div>
@@ -114,7 +114,17 @@ class MainPage extends React.Component {
                 }
             )
                 .then((response) => {
-                    this.setState({showPopup:true});
+
+                    let jsonresult = JSON.parse(JSON.stringify(response.data));
+                    console.log(jsonresult);
+                    if(jsonresult.id === null){
+                        this.setState({message: "Username Already Taken"})
+                    }
+                    else{
+                        this.setState({showPopup:true});
+                    }
+
+
                 })
                 .catch((error) => {
                     //alert(error);
