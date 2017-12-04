@@ -158,13 +158,18 @@ def addFriend(request):
         jsonBody = json.loads(request.body)
         user1 = jsonBody['uid1']
         user2 = jsonBody['uid2']
-        status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
-        if len(status) == 0:
-            create = Friendship.objects.create(uid1=user1, uid2=user2)
-        return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
-
-
-
+        user = User.objects.filter(uid=user2).values()
+        if len(user) == 0 or user == None:
+            resp = JsonResponse({'1':None,'2':None}, safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
+        else:
+            status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
+            if len(status) == 0:
+                create = Friendship.objects.create(uid1=user1, uid2=user2)
+            resp = JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
 
 @csrf_exempt
 def signin(request):

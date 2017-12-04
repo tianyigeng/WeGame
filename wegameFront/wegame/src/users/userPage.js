@@ -19,7 +19,7 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: this.props.match.params.uname, popup: false, delete:"",
+            userName: this.props.match.params.uname, popup: false, delete:"", message:"",
             userInfo: [], friends: [], games: [], gamesName: [], gamesGenre: [], gamesID: [],
             newFriends: "", temp: "",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
@@ -147,6 +147,11 @@ class User extends React.Component {
             )
                 .then((response) => {
                     //alert("success");
+                    let jsonresult = JSON.parse(JSON.stringify(response.data));
+                    console.log(jsonresult);
+                    if(jsonresult.uid1 === null){
+                        this.setState({message: "User Nonexist"})
+                    }
 
                 })
                 .catch((error) => {
@@ -200,10 +205,9 @@ class User extends React.Component {
 
                             <br/>
                             <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
-                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="submmit" onClick={this.addFriend}>+</Button></span>
+                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="submit" onClick={this.addFriend}>+</Button></span>
+                            <br/><br/>
 
-                            <br/>
-                            <br/>
                             <ul className="friendList">
                             {this.state.friends.map((n)=>{
                                 return <li className="friend">
