@@ -21,6 +21,7 @@ class User(models.Model):
 class Friendship(models.Model):
     uid1 = models.TextField(primary_key = True)
     uid2 = models.TextField(primary_key = True)
+    is_starred = models.IntegerField(blank=True, null=True)
     time_created = models.IntegerField(blank=True, null=True)
 
 

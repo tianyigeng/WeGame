@@ -27,9 +27,12 @@ urlpatterns = [
     url(r'^addUser/$',views.addUser),
     url(r'^userInfoGames/(?P<id>.*)$',views.userInfoGames),
     url(r'^userInfoFriends/(?P<id>.*)$', views.userInfoFriends),
-    url(r'^addFriend/$', views.addFriend),
+    url(r'^requestFriend/$', views.requestFriend),
+    url(r'^confirmFriend/$',views.confirmFriend),
     url(r'^deleteFriend/$',views.deleteFriend),
     url(r'^signIn/$',views.signin),
     url(r'^sameGenreGames/$',views.sameGenreGames),
     url(r'^fuzzyQuery/$',views.fuzzyQuery),
+    url(r'^userAddGame/$',views.userAddGame),
+    url(r'^userDeleteGame/$',views.userDeleteGame),
 ]
