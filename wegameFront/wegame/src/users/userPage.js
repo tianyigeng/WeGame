@@ -169,6 +169,7 @@ class User extends React.Component {
                 <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
 
                 <h1>{this.state.userInfo.uid}</h1>
+
                 <div>
                     <div className="col-md-7 gamehistory">
                         <h2>Game History:</h2>

@@ -32,7 +32,7 @@ class userAllGame extends React.Component {
         this.prev = this.prev.bind(this);
         this.next = this.next.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
-
+        this.genregame = this.genregame.bind(this);
 
     }
     allgame(event){
@@ -41,19 +41,50 @@ class userAllGame extends React.Component {
                 let jsonbody = JSON.stringify(response.data.result);
                 this.setState({allResult: JSON.parse(jsonbody)});
                 let i = 0;
+                let page = [];
+                this.setState({page:0});
                 for (i = 0; i < 30; i++){
-                    let temp = this.state.pageResult;
-                    console.log(this.state.allResult[i]);
-                    temp.push(this.state.allResult[i]);
-                    this.setState({pageResult:temp});
+                    page.push(this.state.allResult[i]);
                 }
-                this.setState({maxpage: this.state.allResult.length/20})
+                this.setState({pageResult:page});
+                this.setState({maxpage: this.state.allResult.length/30})
 
             })
             .catch((error) => {
                 alert(error);
                 console.log("error");
             });
+    }
+
+    genregame(event){
+
+
+        axios({
+                url: this.state.currUrl+"sameGenreGames/",
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {genre:event.target.value},
+            }
+        )
+            .then((response) => {
+                let jsonbody = JSON.stringify(response.data);
+                this.setState({allResult: JSON.parse(jsonbody)});
+                let i = 0;
+                let page = [];
+                this.setState({page:0});
+                for (i = 0; i < 30; i++){
+                    page.push(this.state.allResult[i]);
+                }
+                this.setState({pageResult:page});
+                this.setState({maxpage: this.state.allResult.length/30})
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+
+
     }
 
     handleSearch(event){
@@ -115,6 +146,7 @@ class userAllGame extends React.Component {
                         <Button className="pull-right button" onClick={this.next}>&#9658;</Button>
                     </div>
                     <div id="thisPageGame">
+
                         {this.state.pageResult.map((n)=>{
                             return <div className="singeGame">
                                 <h3>{n.name}</h3>
@@ -132,18 +164,19 @@ class userAllGame extends React.Component {
 
                 </div>
 
+
                 <div className="category">
                         <ul>
-                            <li><Button className="catbutton" value="All">All</Button></li>
-                            <li><Button className="catbutton" value="Role-Playing">Role-Playing</Button></li>
-                            <li><Button className="catbutton" value="Fighting">Fighting</Button></li>
-                            <li><Button className="catbutton" value="Action">Action</Button></li>
-                            <li><Button className="catbutton" value="Sports">Sports</Button></li>
-                            <li><Button className="catbutton" value="Strategy">Strategy</Button></li>
-                            <li><Button className="catbutton" value="Shooter">Shooter</Button></li>
-                            <li><Button className="catbutton" value="Puzzle">Puzzle</Button></li>
-                            <li><Button className="catbutton" value="Simulation">Simulation</Button></li>
-                            <li><Button className="catbutton" value="Adventure">Adventure</Button></li>
+                            <li><Button className="catbutton" onClick={this.allgame} value="All">All</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Role-Playing">Role-Playing</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Fighting">Fighting</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Action">Action</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Sports">Sports</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Strategy">Strategy</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Shooter">Shooter</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Puzzle">Puzzle</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Simulation">Simulation</Button></li>
+                            <li><Button className="catbutton" onClick={this.genregame} value="Adventure">Adventure</Button></li>
                             <br/>
                         </ul>
 
@@ -170,5 +203,15 @@ export default userAllGame
 
 
 /*
-
+ let jsonbody = JSON.stringify(response.data.result);
+ this.setState({allResult: JSON.parse(jsonbody)});
+ let i = 0;
+ this.setState({page:0});
+ for (i = 0; i < 30; i++){
+ let temp = this.state.pageResult;
+ console.log(this.state.allResult[i]);
+ temp.push(this.state.allResult[i]);
+ this.setState({pageResult:temp});
+ }
+ this.setState({maxpage: this.state.allResult.length/30})
  */
