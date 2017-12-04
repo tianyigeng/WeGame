@@ -5,6 +5,14 @@ body {
 
 }
 
+#gamehistroy{
+    background-color: #54b9d3;
+}
+
+#blueupper{
+    margin-top: -400px;
+}
+
 .button{
     color: #3d4652;
     background-color: #fcfcfe;
@@ -42,13 +50,48 @@ body {
     width: 240px;
 }
 
+.friendOuter{
+    width: 200px;
+    float: right;
+    margin-right: 180px;
+}
+
 .friendarea{
     height: 508px;
-    margin-left: 50px;
+    width: 350px;
     background-color:#96cfb9 ;
     z-index: 1;
     overflow: auto;
+    padding-bottom: 50px;
+    position: absolute;
 }
+
+.friendRequest{
+    margin-left: 190px;
+    margin-top: 450px;
+    width: 200px;
+    height: 40px;
+    background-color: #e68c74;
+    z-index: 2;
+    position: absolute;
+    overflow: auto;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+.friendRequest:hover {
+
+    -ms-transform: translate(0px,-160px) ; /* IE 9 */
+    -webkit-transform: translate(0px,-160px); /* Safari */
+    transform: translate(0px,-160px); /* Standard syntax */
+
+    height: 200px;
+    overflow: auto;
+    text-indent: 0;
+    white-space: normal;
+}
+
+
 .link{
     text-decoration: none;
 }
@@ -74,17 +117,15 @@ body {
 }
 
 .gamehistory{
-
     z-index: 1;
-
 }
 
 .gameDiv{
     background-color: #ffeeb0;
     color: #3d4652;
-    margin-left: 100px;
-    width: 550px;
-    height:400px;
+    margin-left: 80px;
+    width: 580px;
+    height:430px;
     overflow: auto;
     padding-top: 20px;
     z-index: 2;
@@ -100,5 +141,6 @@ body {
     width: 600px;
     height: 400px;
     background-color: #54b9d3;
-    margin-left: -20px;
+    margin-left: -50px;
 }
+

@@ -175,8 +175,10 @@ class User extends React.Component {
 
                 <h1>{this.state.userInfo.uid}</h1>
 
-                <div>
-                    <div className="col-md-7 gamehistory">
+
+                <div className="col-md-7 gamehistory">
+                    <div id="blue">   </div>
+                    <div id="blueupper">
                         <h2>Game History:</h2>
                             <br/>
                             <div className="gameDiv">
@@ -193,13 +195,13 @@ class User extends React.Component {
                                     })}
                                 </ul>
                             </div>
-
-                        <br/>
                     </div>
+                    <br/>
+                </div>
 
 
-
-                    <div className="col-sm-4 friendarea">
+                <div className="col-sm-4 friendOuter">
+                    <div className=" friendarea">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
 
@@ -222,8 +224,13 @@ class User extends React.Component {
 
                         </form>
 
-
                     </div>
+
+
+                    <div className="friendRequest">
+                        <h4>Friend request: </h4>
+                    </div>
+                </div>
 
                     {this.state.popup ?
                         <div className='popup'>
@@ -239,9 +246,8 @@ class User extends React.Component {
                         : null
                     }
 
-                    <div id="blue">   </div>
 
-                </div>
+
 
             </div>
         );
