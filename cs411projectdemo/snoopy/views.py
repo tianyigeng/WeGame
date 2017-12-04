@@ -138,10 +138,10 @@ def addFriend(request):
 @csrf_exempt
 def sameGenreGames(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	genre = jsonBody['genre']
-	games = Game.objects.filter(genre = genre).values()
-	resp = JsonResponse(list(games), safe=False)
+        jsonBody = json.loads(request.body)
+        genre = jsonBody['genre']
+        games = Game.objects.filter(genre = genre).values()
+        resp = JsonResponse(list(games), safe=False)
         resp['Access-Control-Allow-Origin'] = '*'
 	return resp
 
