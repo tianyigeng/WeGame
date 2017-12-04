@@ -124,16 +124,16 @@ def userInfoGames(request, id):
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 
+
 @csrf_exempt
-def addFriend(request):
+def fuzzyQuery(request):
     if request.method == 'POST':
-        jsonBody = json.loads(request.body)
-        user1 = jsonBody['uid1']
-        user2 = jsonBody['uid2']
-        status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
-        if len(status) == 0:
-            create = Friendship.objects.create(uid1=user1, uid2=user2)
-        return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
+	jsonBody = json.loads(request.body)
+	fuzzy = jsonBody['name']
+    games = Game.objects.filter(name__icontains = fuzzy).values()
+    resp = JsonResponse(list(games), safe=False)
+    resp['Access-Control-Allow-Origin'] = '*'
+    return resp
 
 @csrf_exempt
 def sameGenreGames(request):
@@ -145,29 +145,20 @@ def sameGenreGames(request):
         resp['Access-Control-Allow-Origin'] = '*'
 	return resp
 
+
 @csrf_exempt
-def fuzzyQuery(request):
+def addFriend(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	fuzzy = jsonBody['name']
-        games = Game.objects.all().values()
-        result = []
-        for game in games:
-	    if fuzzy in game['name']:
-	        result.append(game['gid'])
-        finalanswer = []
-        for eachgame in result:
-	    game = Game.objects.filter(gid = eachgame).values()
-            finalanswer.append({
-                "name":game[0]["name"],
-                "genre":game[0]["genre"],
-                "gid":game[0]["gid"],
-                "platform": game[0]["platform"],
-                "publisher": game[0]["publisher"]
-            })
-        resp = JsonResponse(list(finalanswer), safe=False)
-        resp['Access-Control-Allow-Origin'] = '*'
-        return resp
+        jsonBody = json.loads(request.body)
+        user1 = jsonBody['uid1']
+        user2 = jsonBody['uid2']
+        status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
+        if len(status) == 0:
+            create = Friendship.objects.create(uid1=user1, uid2=user2)
+        return JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
+
+
+
 
 @csrf_exempt
 def signin(request):
@@ -208,20 +199,3 @@ def deleteFriend(request):
                 return JsonResponse({'1':user1, '2': user2}, safe=False)
             except Exception as e:
                 return HttpResponse(e.message)
-
-"""
-
-    user1 = request.POST["uid1"]
-    user2 = request.POST["uid2"]
-    user = Friendship.objects.filter(uid1 = user1, uid2 = user2)
-    if user == None:
-        return HttpResponse("user pair doesn't exist")
-    else:
-        try:
-            user.delete()
-            return HttpResponseRedirect("/")
-        except Exception as e:
-            return HttpResponse(e.message)
-
-    return JsonResponse([], safe = False)
-    """
