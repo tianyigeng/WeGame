@@ -268,5 +268,12 @@ def recommendation(request):
     if request.method == 'POST':
         jsonBody = json.loads(request.body)
         user1 = jsonBody['uid']
+	result = []
         user = Recommendation.objects.filter(uid1 = user1).values()
+	for u in user:
+	    result.append({
+		"uid1":u['uid1'],
+		"uid2":u['uid2'],
+		"score":u["score"]
+	    })
         return JsonResponse(list(user), safe=False)
