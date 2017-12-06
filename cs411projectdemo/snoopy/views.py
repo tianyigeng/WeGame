@@ -276,4 +276,4 @@ def recommendation(request):
 		"uid2":u['uid2'],
 		"score":u["score"]
 	    })
-        return JsonResponse(list(user), safe=False)
+        return JsonResponse(list(result), safe=False)
