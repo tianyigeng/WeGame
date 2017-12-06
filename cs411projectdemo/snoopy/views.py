@@ -262,3 +262,11 @@ def deleteFriend(request):
                 return JsonResponse({'1':user1, '2': user2}, safe=False)
             except Exception as e:
                 return HttpResponse(e.message)
+
+@csrf_exempt
+def recommendation(request):
+    if request.method == 'POST':
+        jsonBody = json.loads(request.body)
+        user1 = jsonBody['uid']
+        user = Recommendation.objects.filter(uid1 = user1).values()
+        return JsonResponse(list(user), safe=False)
