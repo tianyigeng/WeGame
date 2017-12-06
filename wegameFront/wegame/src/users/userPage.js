@@ -19,7 +19,7 @@ class User extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            userName: this.props.match.params.uname, popup: false, delete:"", message:"",
+            userName: this.props.match.params.uname, popup: false, popupRequest:false, delete:"", message:"",
             userInfo: [], friends: [], games: [], gamesName: [], gamesGenre: [], gamesID: [],
             newFriends: "", temp: "",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
@@ -63,6 +63,14 @@ class User extends React.Component {
     openPop(event){
         this.setState({delete: event.target.value});
         this.setState({popup: true})
+    }
+
+    closePopRequest(event){
+        this.setState({popupRequest: false})
+    }
+
+    openPopRequest(event){
+        this.setState({popupRequest: true})
     }
 
     getFriend(event){
@@ -246,6 +254,17 @@ class User extends React.Component {
                         : null
                     }
 
+                {this.state.popupRequest ?
+                    <div className='popup'>
+                        <div className='popup_inner'>
+                            <br/><br/>
+                            <h3>Send friend request to {this.state.newFriends} !</h3>
+                            <br/><br/>
+                            <Button className="button" type="submit" onClick={this.closePopRequest}>Ok</Button>
+                        </div>
+                    </div>
+                    : null
+                }
 
 
 
