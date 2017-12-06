@@ -3,7 +3,7 @@ import {render} from 'react-dom';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {IndexRoute, browserHistory} from 'react-router';
 
-import { Button,ButtonDropdown } from 'reactstrap';
+import { Button,ButtonDropdown } from 'semantic-ui-react';
 import './userPage.css';
 import axios from 'axios';
 /**
@@ -12,7 +12,7 @@ import axios from 'axios';
 
 
 import MenuBar from '../menuBar';
-
+import MdCheck from 'react-icons/lib/md/check';
 
 class User extends React.Component {
 
@@ -20,7 +20,7 @@ class User extends React.Component {
         super(props);
         this.state = {
             userName: this.props.match.params.uname, popup: false, popupRequest:false, delete:"", message:"",
-            userInfo: [], friends: [], games: [], gamesName: [], gamesGenre: [], gamesID: [],
+            userInfo: [], friends: [], requestFriends: [],games: [], gamesName: [], gamesGenre: [], gamesID: [],
             newFriends: "", temp: "",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"
@@ -45,6 +45,7 @@ class User extends React.Component {
         this.getGame();
 
         this.addFriend = this.addFriend.bind(this);
+        this.confirmFriend = this.confirmFriend.bind(this);
         this.handleFriend = this.handleFriend.bind(this);
         this.getFriend = this.getFriend.bind(this);
         this.deleteFriend = this.deleteFriend.bind(this);
@@ -52,6 +53,8 @@ class User extends React.Component {
 
         this.closePop = this.closePop.bind(this);
         this.openPop = this.openPop.bind(this);
+        this.closePopRequest = this.closePopRequest.bind(this);
+        this.openPopRequest = this.openPopRequest.bind(this);
 
     }
 
@@ -66,6 +69,8 @@ class User extends React.Component {
     }
 
     closePopRequest(event){
+        let input = document.getElementById('friendId');
+        input.value = '';
         this.setState({popupRequest: false})
     }
 
@@ -79,7 +84,21 @@ class User extends React.Component {
 
         axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.uname)
             .then((response) => {
-                this.setState({friends:response.data});
+                let jsonbody = JSON.parse(JSON.stringify(response.data));
+                let i = 0;
+                let friend = [];
+                let reqfriend = [];
+                for(i = 0; i < jsonbody.length; i ++){
+                    console.log(jsonbody[i]);
+                    if (jsonbody[i].is_starred === 1){
+                        reqfriend.push(jsonbody[i].uid);
+                    }
+                    else{
+                        friend.push(jsonbody[i].uid);
+                    }
+                }
+                this.setState({friends:friend});
+                this.setState({requestFriends:reqfriend});
 
             })
             .catch((error) => {
@@ -141,13 +160,13 @@ class User extends React.Component {
 
     addFriend(event){
 
-        //http://fa17-cs411-47.cs.illinois.edu:8000/addFriend/
-        //http://0.0.0.0:8000/addFriend/
+        //http://fa17-cs411-47.cs.illinois.edu:8000/requestFriend/
+        //http://0.0.0.0:8000/requestFriend/
 
 
         if(this.state.newFriends !=="" && this.state.newFriends !== this.props.match.params.uname){
             axios({
-                    url: this.state.currUrl+'addFriend/',
+                    url: this.state.currUrl+'requestFriend/',
                     method: 'post',
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
                     data: {uid1:this.props.match.params.uname,uid2:this.state.newFriends},
@@ -156,9 +175,11 @@ class User extends React.Component {
                 .then((response) => {
                     //alert("success");
                     let jsonresult = JSON.parse(JSON.stringify(response.data));
-                    console.log(jsonresult);
                     if(jsonresult.uid1 === null){
-                        this.setState({message: "User Nonexist"})
+                        this.setState({message: "User Nonexist"});
+                    }
+                    else{
+                        this.openPopRequest();
                     }
 
                 })
@@ -167,10 +188,29 @@ class User extends React.Component {
                     console.log("error");
                 });
 
-            this.getFriend();
         }
 
+    }
 
+    confirmFriend(event){
+
+        axios({
+                url: this.state.currUrl+'confirmFriend/',
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {uid1:this.props.match.params.uname,uid2:event.target.value},
+            }
+        )
+            .then((response) => {
+                //alert("success");
+
+            })
+            .catch((error) => {
+                //alert(error);
+                console.log("error");
+            });
+
+        this.getFriend();
 
     }
 
@@ -215,19 +255,20 @@ class User extends React.Component {
 
                             <br/>
                             <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
-                                &nbsp;&nbsp;&nbsp;<Button className="button" size="sm" type="submit" onClick={this.addFriend}>+</Button></span>
+                                &nbsp;&nbsp;&nbsp;<Button className="medium ui button addbutton"  type="button" onClick={this.addFriend}>+</Button></span>
                             <br/><br/>
 
                             <ul className="friendList">
-                            {this.state.friends.map((n)=>{
-                                return <li className="friend">
-                                    <Link style={{ color:'#3d4652', textDecoration: 'none' }} to={{pathname: "/user/"+this.props.match.params.uname+"/Friend/"+n, param1:n}} >{n}</Link>
-                                    <Button className="deletebutton pull-right" type="button" size="sm" value={n} onClick={this.openPop}>-</Button>
+                                {this.state.friends.map((n)=>{
+                                    return <li className="friend">
+                                        <Link style={{ color:'#3d4652', textDecoration: 'none' }} to={{pathname: "/user/"+this.props.match.params.uname+"/Friend/"+n, param1:n}} >{n}</Link>
+                                        <Button className="medium ui button pull-right deletebutton" type="button"  value={n} onClick={this.openPop}>-</Button>
 
-                                    <br/><br/>
-                                </li>
+                                        <br/><br/>
+                                    </li>
 
-                            })}
+                                })}
+
                             </ul>
 
                         </form>
@@ -237,6 +278,19 @@ class User extends React.Component {
 
                     <div className="friendRequest">
                         <h4>Friend request: </h4>
+                        <ul className="friendRequestList">
+                            {this.state.requestFriends.map((n)=>{
+                                return <li className="friend">
+                                    <Link style={{ color:'#fcfcfe', textDecoration: 'none' }} to={{pathname: "/user/"+this.props.match.params.uname+"/Friend/"+n, param1:n}} >{n}</Link>
+                                    <Button className="medium ui button pull-right comfirmButton" type="button" size="sm" value={n} onClick={this.confirmFriend}>&#10003;</Button>
+
+                                    <br/><br/>
+                                </li>
+
+                            })}
+
+                        </ul>
+
                     </div>
                 </div>
 
@@ -273,3 +327,15 @@ class User extends React.Component {
     }
 }
 export default User
+
+/*
+ {this.state.friends.map((n)=>{
+ return <li className="friend">
+ <Link style={{ color:'#3d4652', textDecoration: 'none' }} to={{pathname: "/user/"+this.props.match.params.uname+"/Friend/"+n, param1:n}} >{n}</Link>
+ <Button className="deletebutton pull-right" type="button" size="sm" value={n} onClick={this.openPop}>-</Button>
+
+ <br/><br/>
+ </li>
+
+ })}
+ */

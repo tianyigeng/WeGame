@@ -13,17 +13,28 @@ body {
     margin-top: -400px;
 }
 
-.button{
+.addbutton{
     color: #3d4652;
     background-color: #fcfcfe;
     border-radius: 0;
-
+    border: none;
+    outline:none;
 }
 
 .deletebutton{
     color: #fcfcfe;
     background-color: #3d4652;
     border-radius: 0;
+    border: none;
+    outline:none;
+}
+
+.comfirmButton{
+    color: #3d4652;
+    background-color: #fcfcfe;
+    border-radius: 0;
+    border: none;
+    outline:none;
 }
 
 .inputDiv{
@@ -64,12 +75,19 @@ body {
     overflow: auto;
     padding-bottom: 50px;
     position: absolute;
+
 }
+
+.friendFriend{
+    margin-left: 65%;
+}
+
 
 .friendRequest{
     margin-left: 190px;
     margin-top: 450px;
-    width: 200px;
+
+    width: 195px;
     height: 40px;
     background-color: #e68c74;
     z-index: 2;
@@ -89,6 +107,11 @@ body {
     overflow: auto;
     text-indent: 0;
     white-space: normal;
+}
+
+.friendRequestList{
+    width: 150px;
+    margin: auto;
 }
 
 

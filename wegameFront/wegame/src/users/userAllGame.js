@@ -22,19 +22,58 @@ class userAllGame extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0,keyWord:'',
+            userPlayed:[],
             currUrl: (window.location.href.indexOf("illinois") !== -1) ? "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
+
+
+
+        axios.get(this.state.currUrl + "userInfoGames/"+this.props.match.params.uname)
+            .then((response) => {
+                let userGames = JSON.parse(JSON.stringify(response.data));
+                let played = [];
+                let i = 0;
+
+                for (i = 0; i < userGames.length; i++){
+                    played.push(userGames.gid);
+                }
+                this.setState({userPlayed: played });
+                console.log(this.state.userPlayed);
+
+            })
+            .catch((error) => {
+                //alert(error);
+                console.log("error");
+            });
+
 
 
         this.allgame();
 
         this.allgame = this.allgame.bind(this);
-        //this.prev = this.prev.bind(this);
-        //this.next = this.next.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
         this.genregame = this.genregame.bind(this);
         this.search = this.search.bind(this);
+        this.addgame = this.addgame.bind(this);
 
     }
+
+    addgame(event){
+        axios({
+                url: this.state.currUrl+"userAddGame/",
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {uid:this.props.match.params.uname, gid:event.target.value},
+            }
+        )
+            .then((response) => {
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+    }
+
     allgame(event){
         axios.get(this.state.currUrl+"listGame/")
             .then((response) => {
@@ -134,12 +173,18 @@ class userAllGame extends React.Component {
 
                         {this.state.pageResult.map((n)=>{
                             return <div className="singeGame">
+                                {
+                                    this.state.userPlayed.indexOf(n.gid) > 0 ? null :
+                                        <Button className="medium ui button pull-right addgameButton" type="submit"  value={n.gid} onClick={this.addgame}>+</Button>
+                                }
                                 <h3>{n.name}</h3>
                                 <span>Publisher: {n.publisher}</span>
                                 <br/>
                                 <span>Year: {n.year}</span>
                                 <br/>
                                 <span>Genre: {n.genre}</span>
+                                <br/>
+                                <span>GID: {n.gid}</span>
 
                             </div>
                         })}

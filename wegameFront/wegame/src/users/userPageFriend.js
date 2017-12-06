@@ -52,7 +52,17 @@ class UserFriend extends React.Component {
 
         axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.ufriend)
             .then((response) => {
-                this.setState({friends:response.data});
+
+                let jsonbody = JSON.parse(JSON.stringify(response.data));
+                let i = 0;
+                let friend = [];
+                for(i = 0; i < jsonbody.length; i ++){
+                    console.log(jsonbody[i]);
+                    if (jsonbody[i].is_starred === 2){
+                        friend.push(jsonbody[i].uid);
+                    }
+                }
+                this.setState({friends:friend});
 
             })
             .catch((error) => {
@@ -111,18 +121,21 @@ class UserFriend extends React.Component {
 
 
 
-                    <div className="col-sm-4 friendarea">
+                    <div className="col-sm-4 friendarea friendFriend">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
                             <br/>
                             <ul className="friendList">
-                            {this.state.friends.map((n)=>{
-                                return <li className="friend">
-                                    {n}
-                                    <br/><br/>
-                                </li>
+                                {this.state.friends.map((n)=>{
+                                    return <li className="friend">
+                                        <Link style={{ color:'#3d4652', textDecoration: 'none' }}
+                                              to={{pathname: this.props.match.params.uname === n ? "/user/"+this.props.match.params.uname+"/Mainpage":"/user/"+this.props.match.params.uname+"/Friend/"+n, param1:n}} >{n}</Link>
 
-                            })}
+                                        <br/><br/>
+                                    </li>
+
+                                })}
+
                             </ul>
                         </form>
 

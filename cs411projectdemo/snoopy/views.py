@@ -133,41 +133,42 @@ def userInfoGames(request, id):
     resp['Access-Control-Allow-Origin'] = '*'
     return resp
 
+
 @csrf_exempt
 def userAddGame(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	userid = josnBody['uid']
-	gameid = jsonBody['gid']
-	games = Game.objects.filter(gid = gameid).values()
+        jsonBody = json.loads(request.body)
+        userid = jsonBody['uid']
+        gameid = jsonBody['gid']
+        games = Game.objects.filter(gid = gameid).values()
         if len(games) == 0 or games == None:
-	    return JsonResponse({'1':NULL}, safe=False)
-	else:
+            return JsonResponse({'1':None}, safe=False)
+        else:
             create = PlayGame.objects.create(uid = userid, gid = gameid)
-	    result = []
-	    result.append({
-                "name":games[0]["name"],
-                "genre":games[0]["genre"],
-                "gid":games[0]["gid"],
-                "platform": games[0]["platform"],
-                "publisher": games[0]["publisher"]
-	    })
-	    resp = JsonResponse(list(result), safe = False)
+            result = []
+            result.append({
+                    "name":games[0]["name"],
+                    "genre":games[0]["genre"],
+                    "gid":games[0]["gid"],
+                    "platform": games[0]["platform"],
+                    "publisher": games[0]["publisher"]
+            })
+            resp = JsonResponse(list(result), safe = False)
             resp['Access-Control-Allow-Origin'] = '*'
-	    return resp
+            return resp
 
 @csrf_exempt
 def userDeleteGame(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	userid = jsonBody['uid']
-	gameid = jsonBody['gid']
-	games = Game.objects.filter(gid = gameid)
+        jsonBody = json.loads(request.body)
+        userid = jsonBody['uid']
+        gameid = jsonBody['gid']
+        games = Game.objects.filter(gid = gameid)
         if len(games) == 0 or games == None:
-	    return JsonResponse({'1':NULL}, safe=False)
-	else:
-	    games[0].delete()
-	    return JsonResponse({'1':"Success"}, safe=False)
+            return JsonResponse({'1':None}, safe=False)
+        else:
+            games[0].delete()
+            return JsonResponse({'1':"Success"}, safe=False)
 
 @csrf_exempt
 def fuzzyQuery(request):
@@ -202,9 +203,9 @@ def requestFriend(request):
             resp['Access-Control-Allow-Origin'] = '*'
             return resp
         else:
-            status = Friendship.objects.filter(uid1=user1, uid2=user2).values()
+            status = Friendship.objects.filter(uid1=user2, uid2=user1).values()
             if len(status) == 0:
-                create = Friendship.objects.create(uid1=user1, uid2=user2, is_starred=1)
+                create = Friendship.objects.create(uid1=user2, uid2=user1, is_starred=1)
             resp = JsonResponse({'1':jsonBody['uid1'],'2':jsonBody['uid2']}, safe=False)
             resp['Access-Control-Allow-Origin'] = '*'
             return resp
