@@ -54,4 +54,11 @@ class PlayGame(models.Model):
         db_table = 'PLAY_GAME'
 
 
+class Recommendation(models.Model):
+    uid1 = models.TextField(primary_key = True, blank = True)
+    uid2 = models.TextField(primary_key = True, blank = True)
+    score = models.IntegerField(blank = True, null = True)
 
+    class Meta:
+	managed = False
+	db_table = 'RECOMMENDATION'
