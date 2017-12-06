@@ -97,7 +97,10 @@ def userInfoFriends(request,id):
         thisUser = user[0]['uid']
         friends = Friendship.objects.filter(uid1 = thisUser).values()
         for f in list(friends):
-            result.append(f['uid2'])
+            result.append({
+                "uid":f['uid2'],
+                "is_starred":f['is_starred']
+            })
 
 
     resp = JsonResponse(list(result), safe=False)
