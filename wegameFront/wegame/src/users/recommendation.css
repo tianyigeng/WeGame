@@ -8,14 +8,13 @@ body {
 
 
 .hotGame{
-    background-color: #e68c74;
+    margin-left: 2%;
     position: absolute;
     height: 500px;
     width: 50%;
 }
 .pic{
-
-    background-color: #ffeeb0;
+    background-image: url("../assest/out.png");
     position: absolute;
     height: 400px;
     width: 100%;

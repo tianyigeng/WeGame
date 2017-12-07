@@ -46,7 +46,8 @@ class Game(models.Model):
 class PlayGame(models.Model):
     #sid = models.IntegerField(primary_key = True)
     uid = models.TextField(primary_key = True, blank=True)
-    gid = models.ForeignKey(Game, on_delete=models.CASCADE)
+    gid = models.TextField(primary_key = True, blank=True)
+    #gid = models.ForeignKey('Game', to_field = 'gid', on_delete=models.CASCADE)
     duration_played = models.IntegerField(blank=True, null=True)
 
     class Meta:

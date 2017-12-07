@@ -59,7 +59,9 @@ class userRecommendation extends React.Component {
                 <div className="hotGame">
                     <h3>Hottest Game</h3>
 
-                    <div className="pic">   </div>
+                    <div className="pic">
+
+                    </div>
                 </div>
 
                 <div className="recomFriends">
