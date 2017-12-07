@@ -25,28 +25,7 @@ class userAllGame extends React.Component {
             userPlayed:[],
             currUrl: (window.location.href.indexOf("illinois") !== -1) ? "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
-
-
-        axios.get(this.state.currUrl + "userInfoGames/"+this.props.match.params.uname)
-            .then((response) => {
-                let userGames = JSON.parse(JSON.stringify(response.data));
-                let played = [];
-                let i = 0;
-
-                for (i = 0; i < userGames.length; i++){
-                    played.push(userGames.gid);
-                }
-                this.setState({userPlayed: played });
-                console.log(this.state.userPlayed);
-
-            })
-            .catch((error) => {
-                //alert(error);
-                console.log("error");
-            });
-
-
-
+        this.played();
         this.allgame();
 
         this.allgame = this.allgame.bind(this);
@@ -54,6 +33,31 @@ class userAllGame extends React.Component {
         this.genregame = this.genregame.bind(this);
         this.search = this.search.bind(this);
         this.addgame = this.addgame.bind(this);
+        this.played = this.played.bind(this);
+
+
+    }
+
+    played(event){
+        axios.get(this.state.currUrl + "userInfoGames/"+this.props.match.params.uname)
+            .then((response) => {
+                let userGames = JSON.parse(JSON.stringify(response.data));
+
+                console.log(userGames);
+                let played = [];
+                let i = 0;
+
+                for (i = 0; i < userGames.length; i++){
+                    played.push(userGames[i].gid);
+                }
+                this.setState({userPlayed: played });
+                console.log(this.state.userPlayed.indexOf('7226'))
+            })
+            .catch((error) => {
+                //alert(error);
+                console.log("error");
+            });
+
 
     }
 
@@ -72,6 +76,7 @@ class userAllGame extends React.Component {
                 alert(error);
                 console.log("error");
             });
+        window.location.reload();
     }
 
     allgame(event){
@@ -163,7 +168,7 @@ class userAllGame extends React.Component {
 
                 <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
 
-                <h1>All Games !</h1>
+                <h1>All Games ! </h1>
 
                 <div className="green">  </div>
 
@@ -174,8 +179,9 @@ class userAllGame extends React.Component {
                         {this.state.pageResult.map((n)=>{
                             return <div className="singeGame">
                                 {
-                                    this.state.userPlayed.indexOf(n.gid) > 0 ? null :
-                                        <Button className="medium ui button pull-right addgameButton" type="submit"  value={n.gid} onClick={this.addgame}>+</Button>
+
+                                    this.state.userPlayed.indexOf(n.gid.toString()) >= 0 ? null :
+                                        <Button className="medium ui button pull-right addgameButton" value={n.gid} onClick={this.addgame}>+</Button>
                                 }
                                 <h3>{n.name}</h3>
                                 <span>Publisher: {n.publisher}</span>

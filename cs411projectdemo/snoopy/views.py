@@ -144,7 +144,9 @@ def userAddGame(request):
         if len(games) == 0 or games == None:
             return JsonResponse({'1':None}, safe=False)
         else:
-            create = PlayGame.objects.create(uid = userid, gid = gameid)
+            played = PlayGame.objects.filter(uid= userid, gid=gameid).values()
+            if len(played) == 0 or played == None:
+                create = PlayGame.objects.create(uid = userid, gid = gameid)
             result = []
             result.append({
                     "name":games[0]["name"],
