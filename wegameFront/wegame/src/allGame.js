@@ -19,38 +19,33 @@ import MenuBar from './menuBar'
 
 
 class allGame extends React.Component {
-
-    //http://fa17-cs411-47.cs.illinois.edu:8000/listGame/
-    //http://0.0.0.0:8000/listGame/
     constructor(props) {
         super(props);
-        this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0,searchGames:'',
-            currUrl: (window.location.href.indexOf("illinois") !== -1) ?
-                "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
-
+        this.state = {value:'', allResult:[],pageResult:[], page:0, maxpage:0,keyWord:'',
+            currUrl: (window.location.href.indexOf("illinois") !== -1) ? "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
 
         this.allgame();
 
         this.allgame = this.allgame.bind(this);
-        this.prev = this.prev.bind(this);
-        this.next = this.next.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.genregame = this.genregame.bind(this);
+        this.search = this.search.bind(this);
 
 
     }
+
+
     allgame(event){
         axios.get(this.state.currUrl+"listGame/")
             .then((response) => {
                 let jsonbody = JSON.stringify(response.data.result);
                 this.setState({allResult: JSON.parse(jsonbody)});
                 let i = 0;
-                for (i = 0; i < 30; i++){
-                    let temp = this.state.pageResult;
-                    console.log(this.state.allResult[i]);
-                    temp.push(this.state.allResult[i]);
-                    this.setState({pageResult:temp});
+                let page = [];
+                for (i = 0; i < 500; i++){
+                    page.push(this.state.allResult[i]);
                 }
-                this.setState({maxpage: this.state.allResult.length/20})
+                this.setState({pageResult:page});
 
             })
             .catch((error) => {
@@ -59,48 +54,71 @@ class allGame extends React.Component {
             });
     }
 
+    search(event){
+        axios({
+                url: this.state.currUrl+"fuzzyQuery/",
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {name:this.state.keyWord},
+            }
+        )
+            .then((response) => {
+                let jsonbody = JSON.stringify(response.data);
+                this.setState({allResult: JSON.parse(jsonbody)});
+                let i = 0;
+                let page = [];
+                for (i = 0; i < this.state.allResult.length; i++){
+                    page.push(this.state.allResult[i]);
+                }
+                this.setState({pageResult:page});
+                console.log(page);
+                this.setState({keyWord:""});
+                let input = document.getElementById('searchInput');
+                input.value = '';
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+    }
+
+    genregame(event){
+
+
+        axios({
+                url: this.state.currUrl+"sameGenreGames/",
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data: {genre:event.target.value},
+            }
+        )
+            .then((response) => {
+                let jsonbody = JSON.stringify(response.data);
+                this.setState({allResult: JSON.parse(jsonbody)});
+                let i = 0;
+                let page = [];
+                for (i = 0; i < 500; i++){
+                    page.push(this.state.allResult[i]);
+                }
+                this.setState({pageResult:page});
+                this.setState({maxpage: this.state.allResult.length/30})
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+
+
+
+
+    }
+
     handleSearch(event){
-        this.setState({searchGames: event.target.value});
+        this.setState({keyWord: event.target.value});
     }
 
-    prev(event) {
-
-        if (this.state.page !== 0){
-            let div = document.getElementById("thisPageGame");
-            div.innerHTML="";
-            let p = this.state.page;
-            this.setState({page :p-1});
-            this.setState({pageResult:[]});
-            let i = (p-1)*30;
-            for (i = (p-1)*30; i <(p-1)*30+30; i++){
-                let temp = this.state.pageResult;
-                console.log(this.state.allResult[i]);
-                temp.push(this.state.allResult[i]);
-                this.setState({pageResult:temp});
-            }
-        }
-
-    }
-
-    next(event) {
-        if(this.state.page !== this.state.maxpage){
-            let div = document.getElementById("thisPageGame");
-            div.innerHTML="";
-            let p = this.state.page;
-            this.setState({page :p+1});
-            this.setState({pageResult:[]});
-            let i =(p+1)*30;
-            for (i = (p+1)*30; i < (p+1)*30+30; i++){
-                let temp = this.state.pageResult;
-                console.log(this.state.allResult[i]);
-                temp.push(this.state.allResult[i]);
-                this.setState({pageResult:temp});
-            }
-        }
-
-
-
-    }
 
     render() {
         return (
@@ -108,25 +126,24 @@ class allGame extends React.Component {
 
                 <MenuBar wegame="/MainPage" allgame="/AllGame" recom="/Recommendation" logout={false}/>
 
-                <h1>All Games !</h1>
+                <h1>All Games ! </h1>
 
                 <div className="green">  </div>
 
                 <div className="pageGames">
-                    <div className="pageButton">
-                        <Button className="pull-left button" onClick={this.prev}>&#9668;</Button>
-                        <Button className="pull-right button" onClick={this.next}>&#9658;</Button>
-                    </div>
                     <div id="thisPageGame">
+
+
                         {this.state.pageResult.map((n)=>{
                             return <div className="singeGame">
                                 <a style={{ textDecoration: 'none', color:'#fcfcfe' }} href={"https://www.google.com/search?q="+n.name} target="_blank"><h3>{n.name}</h3></a>
-
                                 <span>Publisher: {n.publisher}</span>
                                 <br/>
                                 <span>Year: {n.year}</span>
                                 <br/>
                                 <span>Genre: {n.genre}</span>
+                                <br/>
+                                <span>GID: {n.gid}</span>
 
                             </div>
                         })}
@@ -136,18 +153,19 @@ class allGame extends React.Component {
 
                 </div>
 
+
                 <div className="category">
                     <ul>
-                        <li><Button className="catbutton" value="All">All</Button></li>
-                        <li><Button className="catbutton" value="Role-Playing">Role-Playing</Button></li>
-                        <li><Button className="catbutton" value="Fighting">Fighting</Button></li>
-                        <li><Button className="catbutton" value="Action">Action</Button></li>
-                        <li><Button className="catbutton" value="Sports">Sports</Button></li>
-                        <li><Button className="catbutton" value="Strategy">Strategy</Button></li>
-                        <li><Button className="catbutton" value="Shooter">Shooter</Button></li>
-                        <li><Button className="catbutton" value="Puzzle">Puzzle</Button></li>
-                        <li><Button className="catbutton" value="Simulation">Simulation</Button></li>
-                        <li><Button className="catbutton" value="Adventure">Adventure</Button></li>
+                        <li><Button className="catbutton" onClick={this.allgame} value="All">All</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Role-Playing">Role-Playing</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Fighting">Fighting</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Action">Action</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Sports">Sports</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Strategy">Strategy</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Shooter">Shooter</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Puzzle">Puzzle</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Simulation">Simulation</Button></li>
+                        <li><Button className="catbutton" onClick={this.genregame} value="Adventure">Adventure</Button></li>
                         <br/>
                     </ul>
 
@@ -155,7 +173,7 @@ class allGame extends React.Component {
 
                 <div className="search">
                 <span><input id="searchInput" className="form-control" placeholder="Search For Games!" onChange={this.handleSearch} />
-                    &nbsp;<Button className="searchbutton" size="sm" type="submmit" onClick={this.search}><FaSearch/></Button></span>
+                    &nbsp;<Button className="searchbutton" size="sm" type="button" onClick={this.search}><FaSearch/></Button></span>
 
 
                 </div>
@@ -166,7 +184,6 @@ class allGame extends React.Component {
 
         );
     }
-
 }
 
 
