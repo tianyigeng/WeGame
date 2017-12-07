@@ -176,12 +176,12 @@ def userDeleteGame(request):
 @csrf_exempt
 def fuzzyQuery(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	fuzzy = jsonBody['name']
-    games = Game.objects.filter(name__icontains = fuzzy).values()
-    resp = JsonResponse(list(games), safe=False)
-    resp['Access-Control-Allow-Origin'] = '*'
-    return resp
+        jsonBody = json.loads(request.body)
+        fuzzy = jsonBody['name']
+        games = Game.objects.filter(name__icontains = fuzzy).values()
+        resp = JsonResponse(list(games), safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
 
 @csrf_exempt
 def sameGenreGames(request):
@@ -191,7 +191,7 @@ def sameGenreGames(request):
         games = Game.objects.filter(genre = genre).values()
         resp = JsonResponse(list(games), safe=False)
         resp['Access-Control-Allow-Origin'] = '*'
-	return resp
+        return resp
 
 
 @csrf_exempt
@@ -216,7 +216,7 @@ def requestFriend(request):
 @csrf_exempt
 def confirmFriend(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
+        jsonBody = json.loads(request.body)
         user1 = jsonBody['uid1']
         user2 = jsonBody['uid2']
         status = Friendship.objects.filter(uid1=user1, uid2=user2, is_starred=1).update(is_starred=2)
@@ -228,26 +228,26 @@ def confirmFriend(request):
 @csrf_exempt
 def signin(request):
     if request.method == 'POST':
-	jsonBody = json.loads(request.body)
-	username = jsonBody['uid']
-	password = jsonBody['name']
-	user = User.objects.filter(uid=username).values()
+        jsonBody = json.loads(request.body)
+        username = jsonBody['uid']
+        password = jsonBody['name']
+        user = User.objects.filter(uid=username).values()
 
-    if len(user) == 0 or user == None:
+        if len(user) == 0 or user == None:
 
-        resp = JsonResponse({'login':0}, safe=False)
-        resp['Access-Control-Allow-Origin'] = '*'
-        return resp
+            resp = JsonResponse({'login':0}, safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
 
-    elif user[0]['name'] != password:
-        resp = JsonResponse({'login': 1}, safe=False)
-        resp['Access-Control-Allow-Origin'] = '*'
-        return resp
+        elif user[0]['name'] != password:
+            resp = JsonResponse({'login': 1}, safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
 
-    else:
-        resp = JsonResponse({'login': 2}, safe=False)
-        resp['Access-Control-Allow-Origin'] = '*'
-        return resp
+        else:
+            resp = JsonResponse({'login': 2}, safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
 
 @csrf_exempt
 def deleteFriend(request):
@@ -256,13 +256,13 @@ def deleteFriend(request):
         user1 = jsonBody['uid1']
         user2 = jsonBody['uid2']
         user = Friendship.objects.filter(uid1=user1, uid2=user2, is_starred = 2)
-	another_user = Friendship.objects.filter(uid1=user2, uid2=user1, is_starred = 2)
+        another_user = Friendship.objects.filter(uid1=user2, uid2=user1, is_starred = 2)
         if len(user) == 0 or user == None:
             return HttpResponse("user pair doesn't exist")
         else:
             try:
                 user[0].delete()
-		another_user[0].delete()
+                another_user[0].delete()
                 return JsonResponse({'1':user1, '2': user2}, safe=False)
             except Exception as e:
                 return HttpResponse(e.message)
@@ -272,17 +272,17 @@ def recommendation(request):
     if request.method == 'POST':
         jsonBody = json.loads(request.body)
         user1 = jsonBody['uid']
-	result = []
+        result = []
         user = Recommendation.objects.filter(uid1 = user1).values()
-	for u in user:
-	    result.append({
-		"uid1":u['uid1'],
-		"uid2":u['uid2'],
-		"score":u["score"]
-	    })
-        resp = JsonResponse(list(result), safe=False)
-        resp['Access-Control-Allow-Origin'] = '*'
-        return resp
+        for u in user:
+            result.append({
+            "uid1":u['uid1'],
+            "uid2":u['uid2'],
+            "score":u["score"]
+            })
+            resp = JsonResponse(list(result), safe=False)
+            resp['Access-Control-Allow-Origin'] = '*'
+            return resp
 
 @csrf_exempt
 def GetRcommendation(request):
