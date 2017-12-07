@@ -22,7 +22,7 @@ class MenuBar extends Component {
                 <Nav>
                     <NavItem href={this.props.allgame}>All Games</NavItem>
                     <NavItem href={this.props.recom}>Recommendations</NavItem>
-                    <NavItem href={'/AllUser'}>CheckAllUsers</NavItem>
+
                 </Nav>
 
 
