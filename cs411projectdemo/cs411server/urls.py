@@ -35,5 +35,6 @@ urlpatterns = [
     url(r'^fuzzyQuery/$',views.fuzzyQuery),
     url(r'^userAddGame/$',views.userAddGame),
     url(r'^userDeleteGame/$',views.userDeleteGame),
+    url(r'^GetRec/$',views.GetRcommendation),
     url(r'^recommendation/$',views.recommendation),
 ]

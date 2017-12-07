@@ -11,6 +11,7 @@ from snoopy.models import User
 from snoopy.models import Game
 from snoopy.models import Friendship
 from snoopy.models import PlayGame
+from snoopy.models import Recommendation
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.forms.models import model_to_dict
@@ -279,4 +280,11 @@ def recommendation(request):
 		"uid2":u['uid2'],
 		"score":u["score"]
 	    })
-        return JsonResponse(list(result), safe=False)
+        resp = JsonResponse(list(result), safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
+
+@csrf_exempt
+def GetRcommendation(request):
+    recom = Recommendation.objects.all().values()
+    return JsonResponse(list(recom), safe=False)
