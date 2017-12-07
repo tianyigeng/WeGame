@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0cad8a4-4891-4e79-806d-4ee67d6887d5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cs411projectdemo/snoopy/views.py" afterPath="$PROJECT_DIR$/cs411projectdemo/snoopy/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userPage.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userPage.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="33" />
+            <state relative-caret-position="194">
+              <caret line="255" column="50" lean-forward="false" selection-start-line="255" selection-start-column="50" selection-end-line="255" selection-end-column="50" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#350#383#0" expanded="true" />
@@ -29,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userAllGame.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userAllGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="170" column="37" lean-forward="true" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+            <state relative-caret-position="449">
+              <caret line="189" column="37" lean-forward="true" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -82,8 +81,8 @@
       <file leaf-file-name="mainPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2580">
-              <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+            <state relative-caret-position="490">
+              <caret line="172" column="72" lean-forward="true" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -136,6 +135,7 @@
       <find>dele</find>
       <find>Game</find>
       <find>win</find>
+      <find>message</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,10 +169,10 @@
         <option value="$PROJECT_DIR$/cs411projectdemo/cs411server/urls.py" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPageFriend.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.css" />
-        <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/allGame.css" />
         <option value="$PROJECT_DIR$/cs411projectdemo/snoopy/views.py" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js" />
+        <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" />
       </list>
     </option>
   </component>
@@ -486,12 +486,12 @@
       <workItem from="1512423139283" duration="1568000" />
       <workItem from="1512530442060" duration="505000" />
       <workItem from="1512531610834" duration="394000" />
-      <workItem from="1512592633734" duration="6973000" />
+      <workItem from="1512592633734" duration="7482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59758000" />
+    <option name="totallyTimeSpent" value="60267000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="164" y="23" width="1153" height="788" extended-state="0" />
@@ -744,14 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2580">
-          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/mainPage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -808,14 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allGame.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cs411projectdemo/cs411server/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
@@ -832,27 +816,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cs411projectdemo/snoopy/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1465">
+        <state relative-caret-position="-683">
           <caret line="149" column="23" lean-forward="true" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js">
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allGame.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="154" column="8" lean-forward="false" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#350#383#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="164">
+          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/mainPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="172" column="72" lean-forward="true" selection-start-line="172" selection-start-column="32" selection-end-line="172" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="170" column="37" lean-forward="true" selection-start-line="170" selection-start-column="37" selection-end-line="170" selection-end-column="37" />
+        <state relative-caret-position="449">
+          <caret line="189" column="37" lean-forward="true" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="255" column="50" lean-forward="false" selection-start-line="255" selection-start-column="50" selection-end-line="255" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#350#383#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

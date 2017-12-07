@@ -175,7 +175,8 @@ class User extends React.Component {
                 .then((response) => {
                     //alert("success");
                     let jsonresult = JSON.parse(JSON.stringify(response.data));
-                    if(jsonresult.uid1 === null){
+                    console.log(jsonresult.uid1);
+                    if(jsonresult.uid1 === null || jsonresult.uid1 === 'undefined' || jsonresult.uid1.length < 1){
                         this.setState({message: "User Nonexist"});
                     }
                     else{
@@ -185,6 +186,7 @@ class User extends React.Component {
                 })
                 .catch((error) => {
                     //alert(error);
+                    this.setState({message: "User Nonexist"});
                     console.log("error");
                 });
 
@@ -252,7 +254,6 @@ class User extends React.Component {
                     <div className=" friendarea">
                         <form className="form-signin">
                             <h3>Friend List: </h3>
-
                             <br/>
                             <span><input id="friendId" className="form-control" placeholder="UserId" onChange={this.handleFriend} />
                                 &nbsp;&nbsp;&nbsp;<Button className="medium ui button addbutton"  type="button" onClick={this.addFriend}>+</Button></span>
