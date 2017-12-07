@@ -52,6 +52,13 @@ def main():
 
   raw_data_importer.IngestToDatabase(cursor)
 
+  cursor.execute('''
+    create procedure countUserNumber(
+    )
+      select count(*)
+      from USER;
+  ''')
+
   connection.commit()
   connection.close()
 

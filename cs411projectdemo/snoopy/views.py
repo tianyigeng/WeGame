@@ -15,6 +15,8 @@ from snoopy.models import Recommendation
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from django.forms.models import model_to_dict
+from django.db import transaction
+from django.db import connection
 
 import json
 from django.http import JsonResponse
@@ -33,8 +35,8 @@ def deleteuser(request, id):
         try:
             user.delete()
             return JsonResponse({'delete':id},safe=False)
-        except Exception as e:
-            return HttpResponse(e.message)
+        except:
+            return transaction.rollback()
 
 @csrf_exempt 
 def addUser(request):
@@ -288,3 +290,10 @@ def recommendation(request):
 def GetRcommendation(request):
     recom = Recommendation.objects.all().values()
     return JsonResponse(list(recom), safe=False)
+
+@csrf_exempt
+def countUserNumber(request):
+    cursor = connection.cursor()    
+    cursor.callproc('countUserNumber')
+    data = cursor.fetchall()
+    return JsonResponse(list(data), safe=False)

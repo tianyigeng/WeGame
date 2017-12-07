@@ -46,7 +46,7 @@ class Game(models.Model):
 class PlayGame(models.Model):
     #sid = models.IntegerField(primary_key = True)
     uid = models.TextField(primary_key = True, blank=True)
-    gid = models.TextField(primary_key = True, blank=True)
+    gid = models.ForeignKey(Game)
     duration_played = models.IntegerField(blank=True, null=True)
 
     class Meta:
