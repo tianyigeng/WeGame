@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e0cad8a4-4891-4e79-806d-4ee67d6887d5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/background.png" afterPath="$PROJECT_DIR$/wordcloud/background.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/out.png" afterPath="$PROJECT_DIR$/wordcloud/out.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.css" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPageFriend.js" afterPath="$PROJECT_DIR$/wegameFront/wegame/src/users/userPageFriend.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/data1.txt" afterPath="$PROJECT_DIR$/wordcloud/data1.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/hotgame.py" afterPath="$PROJECT_DIR$/wordcloud/hotgame.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/script.txt" afterPath="$PROJECT_DIR$/wordcloud/script.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wordcloud/stopwords.txt" afterPath="$PROJECT_DIR$/wordcloud/stopwords.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,67 +20,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="userPage.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userPage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="265" column="94" lean-forward="false" selection-start-line="265" selection-start-column="94" selection-end-line="265" selection-end-column="94" />
+            <state relative-caret-position="217">
+              <caret line="240" column="8" lean-forward="false" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="33" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#350#383#0" expanded="true" />
+                <marker date="1512622704000" expanded="true" signature="468:12779" ph="{...}" />
+                <marker date="1512622704000" expanded="true" signature="7603:12777" ph="{...}" />
+                <marker date="1512622704000" expanded="true" signature="7634:12760" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="7956:9299" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="8060:9250" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="8190:9223" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="8248:9188" ph="&lt;ul/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="8337:9148" ph="{...}" />
+                <marker date="1512622704000" expanded="true" signature="8386:9109" ph="&lt;li/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9318:11493" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9377:10636" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9431:10608" ph="&lt;form/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9575:9834" ph="&lt;span/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9903:10575" ph="&lt;ul/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="9992:10538" ph="{...}" />
+                <marker date="1512622704000" expanded="true" signature="10037:10503" ph="&lt;li/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="10659:11470" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="10765:11442" ph="&lt;ul/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="10864:11409" ph="{...}" />
+                <marker date="1512622704000" expanded="true" signature="10905:11378" ph="&lt;li/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="11559:12164" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="11611:12133" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="12282:12693" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="12330:12666" ph="&lt;div/&gt;" />
+                <marker date="1512622704000" expanded="true" signature="12801:13160" ph="/*...*/" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userPageFriend.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPageFriend.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="154" column="94" lean-forward="false" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allGame.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allGame.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userRecommendation.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userRecommendation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="70" column="63" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="63" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="recommendation.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/recommendation.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="allGame.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/allGame.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -88,8 +61,8 @@
       <file leaf-file-name="userPage.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="167" column="1" lean-forward="true" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
+            <state relative-caret-position="17">
+              <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -98,28 +71,101 @@
       <file leaf-file-name="userAllGame.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="404">
-              <caret line="193" column="32" lean-forward="false" selection-start-line="192" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="283">
+              <caret line="191" column="33" lean-forward="false" selection-start-line="191" selection-start-column="33" selection-end-line="191" selection-end-column="33" />
+              <folding>
+                <marker date="1512622242000" expanded="true" signature="582:8489" ph="{...}" />
+                <marker date="1512622242000" expanded="true" signature="5127:8486" ph="{...}" />
+                <marker date="1512622242000" expanded="true" signature="5158:8467" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="5515:6691" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="5563:6666" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="5645:6636" ph="{...}" />
+                <marker date="1512622242000" expanded="true" signature="5682:6610" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="6710:8111" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="6761:8087" ph="&lt;ul/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="8129:8446" ph="&lt;div/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="8170:8421" ph="&lt;span/&gt;" />
+                <marker date="1512622242000" expanded="true" signature="8521:8717" ph="/*...*/" />
+                <marker date="1512622242000" expanded="true" signature="8719:9967" ph="/*...*/" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/index.js">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cs411projectdemo/snoopy/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="45" />
-              <folding />
+            <state relative-caret-position="475">
+              <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+              <folding>
+                <element signature="e#24#63#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/index.css">
+      <file leaf-file-name="hotgame.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wordcloud/hotgame.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="182">
+              <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+              <folding>
+                <element signature="e#102#115#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="out.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordcloud/out.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="background.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordcloud/background.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cs411projectdemo/snoopy/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="20" />
+              <folding>
+                <marker date="1512623413000" expanded="true" signature="1515:1796" ph="..." />
+                <marker date="1512623413000" expanded="true" signature="1741:1796" ph="..." />
+                <marker date="1512623413000" expanded="true" signature="1834:2080" ph="..." />
+                <marker date="1512623413000" expanded="true" signature="2034:2080" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userRecommendation.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userRecommendation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="575">
+              <caret line="90" column="42" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <marker date="1512616981000" expanded="true" signature="2760:2783" ph="&lt;div/&gt;" />
+                <marker date="1512616981000" expanded="true" signature="2760:2803" ph="&lt;div/&gt;" />
+                <marker date="1512616981000" expanded="true" signature="2760:2820" ph="{...}" />
+                <marker date="1512616981000" expanded="true" signature="2760:2822" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="recommendation.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/recommendation.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="57" column="1" lean-forward="false" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -202,6 +248,7 @@
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/allGame.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPageFriend.js" />
         <option value="$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js" />
+        <option value="$PROJECT_DIR$/wordcloud/hotgame.py" />
       </list>
     </option>
   </component>
@@ -215,9 +262,9 @@
     <handled-path value="$PROJECT_DIR$/wegameFront/wegame/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="228" />
-    <option name="y" value="23" />
-    <option name="width" value="1153" />
+    <option name="x" value="335" />
+    <option name="y" value="83" />
+    <option name="width" value="1281" />
     <option name="height" value="788" />
   </component>
   <component name="ProjectView">
@@ -235,6 +282,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -271,7 +319,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wegameFront" />
+              <option name="myItemId" value="cs411projectdemo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -285,33 +333,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wegameFront" />
+              <option name="myItemId" value="cs411projectdemo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wegame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WeGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WeGame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wegameFront" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wegame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="snoopy" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -325,25 +351,16 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wegameFront" />
+              <option name="myItemId" value="cs411projectdemo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wegame" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="users" />
+              <option name="myItemId" value="cs411server" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -473,6 +490,26 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+    <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method />
+    </configuration>
     <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
       <node-interpreter value="project" />
       <working-dir value="" />
@@ -487,6 +524,66 @@
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <module name="WeGame" />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -505,6 +602,49 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="WeGame" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.crawl_data" />
+      <item index="1" class="java.lang.String" itemvalue="Python.game_info" />
+      <item index="2" class="java.lang.String" itemvalue="Python.hotgame" />
+      <item index="3" class="java.lang.String" itemvalue="Python.raw_data_importer" />
+      <item index="4" class="java.lang.String" itemvalue="Python.rebuild_database" />
+    </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -531,35 +671,38 @@
       <workItem from="1512530442060" duration="505000" />
       <workItem from="1512531610834" duration="394000" />
       <workItem from="1512592633734" duration="10837000" />
-      <workItem from="1512615329239" duration="3655000" />
+      <workItem from="1512615329239" duration="3820000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67277000" />
+    <option name="totallyTimeSpent" value="67442000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="228" y="23" width="1153" height="788" extended-state="0" />
+    <frame x="335" y="83" width="1281" height="788" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23233216" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18188915" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20083103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20083103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20083103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1810954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -567,8 +710,8 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -761,11 +904,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wordcloud/out.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wordcloud/script.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -780,15 +918,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wordcloud/background.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/mainPage.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -796,6 +930,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="38" column="25" lean-forward="false" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -803,30 +938,36 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="56" column="20" lean-forward="false" selection-start-line="56" selection-start-column="6" selection-end-line="56" selection-end-column="20" />
+          <folding>
+            <marker date="1512623413000" expanded="true" signature="1515:1796" ph="..." />
+            <marker date="1512623413000" expanded="true" signature="1741:1796" ph="..." />
+            <marker date="1512623413000" expanded="true" signature="1834:2080" ph="..." />
+            <marker date="1512623413000" expanded="true" signature="2034:2080" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cs411projectdemo/snoopy/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        <state relative-caret-position="475">
+          <caret line="34" column="12" lean-forward="false" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userRecommendation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="70" column="63" lean-forward="false" selection-start-line="70" selection-start-column="54" selection-end-line="70" selection-end-column="63" />
+        <state relative-caret-position="575">
+          <caret line="90" column="42" lean-forward="false" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="42" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <marker date="1512616981000" expanded="true" signature="2760:2783" ph="&lt;div/&gt;" />
+            <marker date="1512616981000" expanded="true" signature="2760:2803" ph="&lt;div/&gt;" />
+            <marker date="1512616981000" expanded="true" signature="2760:2820" ph="{...}" />
+            <marker date="1512616981000" expanded="true" signature="2760:2822" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wordcloud/hotgame.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="49" column="32" lean-forward="true" selection-start-line="49" selection-start-column="32" selection-end-line="49" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -834,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,15 +982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="37" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="404">
-          <caret line="193" column="32" lean-forward="false" selection-start-line="192" selection-start-column="32" selection-end-line="193" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -858,23 +989,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/recommendation.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="37" column="16" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="167" column="1" lean-forward="true" selection-start-line="167" selection-start-column="1" selection-end-line="167" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -882,7 +996,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="36" column="18" lean-forward="false" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -890,17 +1003,99 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="154" column="94" lean-forward="false" selection-start-line="154" selection-start-column="94" selection-end-line="154" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="265" column="94" lean-forward="false" selection-start-line="265" selection-start-column="94" selection-end-line="265" selection-end-column="94" />
+        <state relative-caret-position="217">
+          <caret line="240" column="8" lean-forward="false" selection-start-line="240" selection-start-column="8" selection-end-line="240" selection-end-column="33" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#350#383#0" expanded="true" />
+            <marker date="1512622704000" expanded="true" signature="468:12779" ph="{...}" />
+            <marker date="1512622704000" expanded="true" signature="7603:12777" ph="{...}" />
+            <marker date="1512622704000" expanded="true" signature="7634:12760" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="7956:9299" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="8060:9250" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="8190:9223" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="8248:9188" ph="&lt;ul/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="8337:9148" ph="{...}" />
+            <marker date="1512622704000" expanded="true" signature="8386:9109" ph="&lt;li/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9318:11493" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9377:10636" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9431:10608" ph="&lt;form/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9575:9834" ph="&lt;span/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9903:10575" ph="&lt;ul/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="9992:10538" ph="{...}" />
+            <marker date="1512622704000" expanded="true" signature="10037:10503" ph="&lt;li/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="10659:11470" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="10765:11442" ph="&lt;ul/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="10864:11409" ph="{...}" />
+            <marker date="1512622704000" expanded="true" signature="10905:11378" ph="&lt;li/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="11559:12164" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="11611:12133" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="12282:12693" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="12330:12666" ph="&lt;div/&gt;" />
+            <marker date="1512622704000" expanded="true" signature="12801:13160" ph="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/recommendation.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="57" column="1" lean-forward="false" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userAllGame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="191" column="33" lean-forward="false" selection-start-line="191" selection-start-column="33" selection-end-line="191" selection-end-column="33" />
+          <folding>
+            <marker date="1512622242000" expanded="true" signature="582:8489" ph="{...}" />
+            <marker date="1512622242000" expanded="true" signature="5127:8486" ph="{...}" />
+            <marker date="1512622242000" expanded="true" signature="5158:8467" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="5515:6691" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="5563:6666" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="5645:6636" ph="{...}" />
+            <marker date="1512622242000" expanded="true" signature="5682:6610" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="6710:8111" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="6761:8087" ph="&lt;ul/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="8129:8446" ph="&lt;div/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="8170:8421" ph="&lt;span/&gt;" />
+            <marker date="1512622242000" expanded="true" signature="8521:8717" ph="/*...*/" />
+            <marker date="1512622242000" expanded="true" signature="8719:9967" ph="/*...*/" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wegameFront/wegame/src/users/userPage.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="37" column="20" lean-forward="false" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordcloud/out.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordcloud/background.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordcloud/hotgame.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="43" column="21" lean-forward="false" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+          <folding>
+            <element signature="e#102#115#0" expanded="true" />
           </folding>
         </state>
       </provider>

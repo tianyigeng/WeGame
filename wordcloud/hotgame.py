@@ -29,7 +29,8 @@ def word_freq():
 
 #随机获取颜色
 def get_color():
-    return (random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+    colors = [(104, 104, 220),(188, 188, 246),(43, 43, 186),(255, 175, 97),(255, 219, 184),(255, 139, 24),(255, 215, 97),(255, 237, 184),(255, 197, 24)]
+    return colors[random.randint(0,len(colors)-1)]
 #获取图片位置
 def get_position(width, height):
     width_rand = random.randint(0, width+40)
@@ -37,7 +38,7 @@ def get_position(width, height):
     return (width_rand, height_rand)
 
 if __name__ == "__main__":
-    iList = 20
+    iList = 50
     word_frequency = word_freq() 
     word_sort = sorted(word_frequency.items(), key=lambda d:d[1], reverse=True)[0:iList]
 #    for word, freq in word_sort:
@@ -56,15 +57,15 @@ if __name__ == "__main__":
         width, height = im01.size
         #计算词在图片上展示的相对大小
         ##其中290是个需要手动调整的参数，根据输入文件词的数量多少, 它的大小可能从10-几万不等
-        font_size = int((freq / freq_sum) * 290)
+        font_size = int((2 * freq / freq_sum) * 430)
         draw = ImageDraw.Draw(im01)
         #arial.ttf这个文件是从网上下载的，指定字体的
-        font = ImageFont.truetype("arial.ttf", font_size)
+        font = ImageFont.truetype("Candara.ttf", font_size)
         draw.text(get_position(width, height),word, fill = get_color(), font=font)
   #      draw.text(get_position(width, height),word, fill = get_color(), font=font)
 #输出，保存在当前目录，文件是out.png,
     im01.save("out.png")
-
+    im01.save("/home/hzhan107/411FinalProject/WeGame/wegameFront/wegame/src/assest")
 
 
 
