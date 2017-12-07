@@ -294,6 +294,6 @@ def GetRcommendation(request):
 @csrf_exempt
 def countUserNumber(request):
     cursor = connection.cursor()    
-    cursor.callproc('countUserNumber')
+    cursor.callproc('countUserNumber', 'u')
     data = cursor.fetchall()
     return JsonResponse(list(data), safe=False)

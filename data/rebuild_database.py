@@ -16,6 +16,10 @@ def main():
   ''')
 
   cursor.execute('''
+    DROP PROCEDURE IF EXISTS countUserNumber
+  ''')
+
+  cursor.execute('''
     CREATE TABLE USER(
       uid text,
       name text
@@ -54,9 +58,17 @@ def main():
 
   cursor.execute('''
     create procedure countUserNumber(
+      IN formal char(1)
     )
+    BEGIN
+    if formal = 'u' then
       select count(*)
       from USER;
+    else
+      select count(*)
+      from GAME;
+    end if;
+    END;
   ''')
 
   connection.commit()
