@@ -280,9 +280,9 @@ def recommendation(request):
             "uid2":u['uid2'],
             "score":u["score"]
             })
-            resp = JsonResponse(list(result), safe=False)
-            resp['Access-Control-Allow-Origin'] = '*'
-            return resp
+        resp = JsonResponse(list(result), safe=False)
+        resp['Access-Control-Allow-Origin'] = '*'
+        return resp
 
 @csrf_exempt
 def GetRcommendation(request):
