@@ -65,7 +65,7 @@ if __name__ == "__main__":
   #      draw.text(get_position(width, height),word, fill = get_color(), font=font)
 #输出，保存在当前目录，文件是out.png,
     im01.save("out.png")
-    im01.save("/home/hzhan107/411FinalProject/WeGame/wegameFront/wegame/src/assest")
+    im01.save("/home/hzhan107/411FinalProject/WeGame/wegameFront/wegame/src/assest/out.png")
 
 
 
