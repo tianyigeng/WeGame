@@ -50,6 +50,7 @@ class User extends React.Component {
         this.getFriend = this.getFriend.bind(this);
         this.deleteFriend = this.deleteFriend.bind(this);
         this.getGame = this.getGame.bind(this);
+        this.deleteGame = this.deleteGame.bind(this);
 
         this.closePop = this.closePop.bind(this);
         this.openPop = this.openPop.bind(this);
@@ -216,6 +217,32 @@ class User extends React.Component {
 
     }
 
+    deleteGame(event){
+
+        //http://fa17-cs411-47.cs.illinois.edu:8000/deleteFriend/
+        //http://0.0.0.0:8000/deleteFriend/
+
+        axios({
+                url: this.state.currUrl+'userDeleteGame/',
+                method: 'post',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                data:{uid:this.props.match.params.uname, gid: event.target.value},
+            }
+        )
+            .then((response) => {
+
+                //alert("success");
+            })
+            .catch((error) => {
+                //alert(error);
+                console.log("error");
+            });
+        
+        window.location.reload();
+
+    }
+
+
     render() {
         return (
             <div className="User">
@@ -235,6 +262,8 @@ class User extends React.Component {
                                 <ul className="gameList">
                                     {this.state.games.map((n)=>{
                                         return <li className="game">
+                                            <Button className="medium ui button pull-left deleteGamebutton" type="button"  value={n['gid']} onClick={this.deleteGame}>-</Button>
+
                                             <h4>{n["name"]}</h4>
                                             <p>Genre: {n["genre"]} </p>
                                             <p>Platform: {n["platform"]} </p>

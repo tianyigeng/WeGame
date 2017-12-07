@@ -165,7 +165,7 @@ def userDeleteGame(request):
         jsonBody = json.loads(request.body)
         userid = jsonBody['uid']
         gameid = jsonBody['gid']
-        games = Game.objects.filter(gid = gameid)
+        games = PlayGame.objects.filter(uid = userid, gid = gameid)
         if len(games) == 0 or games == None:
             return JsonResponse({'1':None}, safe=False)
         else:

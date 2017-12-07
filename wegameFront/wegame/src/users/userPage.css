@@ -29,6 +29,15 @@ body {
     outline:none;
 }
 
+.deleteGamebutton{
+    color: #fcfcfe;
+    background-color: #3d4652;
+    border-radius: 0;
+    border: none;
+    outline:none;
+    margin-left: -30px;
+}
+
 .comfirmButton{
     color: #3d4652;
     background-color: #fcfcfe;
@@ -136,7 +145,7 @@ body {
     list-style-type: none;
 }
 .gameList{
-    margin-left: 100px;
+    margin-left: 50px;
 }
 
 .gamehistory{
