@@ -2,11 +2,6 @@ body {
     font: 14px "Century Gothic", Futura, sans-serif;
 
     background-color: #537fbb;
-    /*
-    background-image: url("./assest/backgroundImage.png");
-    background-attachment: fixed;
-    background-position: center;
-    */
     text-align: center;
     margin: 20px;
 }
@@ -19,13 +14,38 @@ body {
     width: 50%;
 }
 .pic{
-    background-image: url("../../../../wordcloud/out.png");
+
     background-color: #ffeeb0;
     position: absolute;
     height: 400px;
     width: 100%;
 }
 
+.recomFriends{
+    height: 508px;
+    width: 380px;
+    z-index: 1;
+    padding-bottom: 50px;
+    position: absolute;
+    margin-left: 60%;
+
+
+}
+
+.recFriendList{
+    background-color: #96cfb9;
+    width: 100%;
+    height: 90%;
+    margin: auto;
+    padding-top: 5%;
+    overflow: auto;
+}
+
+.recFriend{
+    text-align:left;
+    margin-left: 5%;
+
+}
 
 .a{
     color: black;

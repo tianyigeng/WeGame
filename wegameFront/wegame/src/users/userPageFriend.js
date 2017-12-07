@@ -18,7 +18,7 @@ class UserFriend extends React.Component {
     constructor(props) {
         super(props);
         this.state = {userName:this.props.match.params.uname,friend:this.props.match.params.ufriend,
-            userInfo:[], friends:[], games:[],
+            userInfo:[], friends:[], games:[],userFriend:false,
             newFriends:"", temp:"",
             currUrl: (window.location.href.indexOf("illinois") !== -1) ?
                 "http://fa17-cs411-47.cs.illinois.edu:8000/" : "http://0.0.0.0:8000/"};
@@ -37,12 +37,55 @@ class UserFriend extends React.Component {
                 console.log("error");
             });
 
+        axios.get(this.state.currUrl + "userInfoFriends/"+this.props.match.params.uname)
+            .then((response) => {
+                let jsonbody = JSON.parse(JSON.stringify(response.data));
+                let i = 0;
+                for(i = 0; i < jsonbody.length; i ++){
+                    console.log(jsonbody[i].uid);
+                    console.log(this.props.match.params.ufriend);
+                    if (jsonbody[i].uid === this.props.match.params.ufriend){
+                        this.setState({userFriend:true});
+                        break;
+                    }
+                }
+
+            })
+            .catch((error) => {
+                alert(error);
+                console.log("error");
+            });
+
 
         this.getFriend();
         this.getGame();
 
         this.getFriend = this.getFriend.bind(this);
         this.getGame = this.getGame.bind(this);
+        this.addFriend = this.addFriend.bind(this);
+
+    }
+
+    addFriend(event){
+
+        //http://fa17-cs411-47.cs.illinois.edu:8000/requestFriend/
+        //http://0.0.0.0:8000/requestFriend/
+        axios({
+                    url: this.state.currUrl+'requestFriend/',
+                    method: 'post',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    data: {uid1:this.props.match.params.uname,uid2:this.props.match.params.ufriend},
+                }
+            )
+                .then((response) => {
+
+
+                })
+                .catch((error) => {
+
+                });
+
+
 
     }
 
@@ -96,7 +139,11 @@ class UserFriend extends React.Component {
 
                 <MenuBar wegame={"/user/"+this.props.match.params.uname+"/Mainpage"} allgame={"/user/"+this.props.match.params.uname+"/AllGame"} recom={"/user/"+this.props.match.params.uname+"/Recommendation"}  logout={true}/>
 
-                <h1>{this.props.match.params.ufriend}</h1>
+                <h1>{this.props.match.params.ufriend}&nbsp;&nbsp;&nbsp;
+                    {this.state.userFriend ? null:
+                        <Button className="medium ui button addbutton"  type="button" onClick={this.addFriend}>+</Button>
+                    }
+                </h1>
                 <div>
                     <div className="col-md-7 gamehistory">
                         <h2>Game History:</h2>
@@ -122,7 +169,7 @@ class UserFriend extends React.Component {
 
 
                     <div className="col-sm-4 friendarea friendFriend">
-                        <form className="form-signin">
+
                             <h3>Friend List: </h3>
                             <br/>
                             <ul className="friendList">
@@ -137,8 +184,6 @@ class UserFriend extends React.Component {
                                 })}
 
                             </ul>
-                        </form>
-
 
                     </div>
 
