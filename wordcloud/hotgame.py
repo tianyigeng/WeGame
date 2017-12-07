@@ -1,6 +1,7 @@
 #coding=utf8
 # note: reference words type from arial.ttf
 # background picture retrieved from internet
+from __future__ import division
 import random
 
 from PIL import Image
