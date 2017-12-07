@@ -62,6 +62,8 @@ class userAllGame extends React.Component {
     }
 
     addgame(event){
+
+        let btn = document.getElementById(event.target.value);
         axios({
                 url: this.state.currUrl+"userAddGame/",
                 method: 'post',
@@ -71,12 +73,13 @@ class userAllGame extends React.Component {
         )
             .then((response) => {
 
+                btn.style.visibility = 'hidden';
+                //event.style.visibility = 'hidden';
             })
             .catch((error) => {
                 alert(error);
                 console.log("error");
             });
-        window.location.reload();
     }
 
     allgame(event){
@@ -181,7 +184,7 @@ class userAllGame extends React.Component {
                                 {
 
                                     this.state.userPlayed.indexOf(n.gid.toString()) >= 0 ? null :
-                                        <Button className="medium ui button pull-right addgameButton" value={n.gid} onClick={this.addgame}>+</Button>
+                                        <Button id={n.gid} className="medium ui button pull-right addgameButton" value={n.gid} onClick={this.addgame}>+</Button>
                                 }
                                 <h3>{n.name}</h3>
                                 <span>Publisher: {n.publisher}</span>

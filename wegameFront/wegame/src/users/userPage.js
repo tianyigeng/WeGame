@@ -237,7 +237,7 @@ class User extends React.Component {
                 //alert(error);
                 console.log("error");
             });
-        
+
         window.location.reload();
 
     }
