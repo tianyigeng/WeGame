@@ -263,8 +263,9 @@ class User extends React.Component {
                                     {this.state.games.map((n)=>{
                                         return <li className="game">
                                             <Button className="medium ui button pull-left deleteGamebutton" type="button"  value={n['gid']} onClick={this.deleteGame}>-</Button>
+                                            <a style={{ textDecoration: 'none', color:'#3d4652' }} href={"https://www.google.com/search?q="+n["name"]} target="_blank"><h4>{n["name"]}</h4></a>
 
-                                            <h4>{n["name"]}</h4>
+
                                             <p>Genre: {n["genre"]} </p>
                                             <p>Platform: {n["platform"]} </p>
                                             <p>Publisher: {n["publisher"]} </p>

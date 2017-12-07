@@ -120,7 +120,8 @@ class allGame extends React.Component {
                     <div id="thisPageGame">
                         {this.state.pageResult.map((n)=>{
                             return <div className="singeGame">
-                                <h3>{n.name}</h3>
+                                <a style={{ textDecoration: 'none', color:'#fcfcfe' }} href={"https://www.google.com/search?q="+n.name} target="_blank"><h3>{n.name}</h3></a>
+
                                 <span>Publisher: {n.publisher}</span>
                                 <br/>
                                 <span>Year: {n.year}</span>

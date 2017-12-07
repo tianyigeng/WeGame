@@ -152,7 +152,8 @@ class UserFriend extends React.Component {
                                 <ul className="gameList">
                                     {this.state.games.map((n)=>{
                                         return <li className="game">
-                                            <h4>{n["name"]}</h4>
+                                            <a style={{ textDecoration: 'none', color:'#3d4652' }} href={"https://www.google.com/search?q="+n["name"]} target="_blank"><h4>{n["name"]}</h4></a>
+
                                             <p>Genre: {n["genre"]} </p>
                                             <p>Platform: {n["platform"]} </p>
                                             <p>Publisher: {n["publisher"]} </p>

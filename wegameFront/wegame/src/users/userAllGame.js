@@ -190,7 +190,7 @@ class userAllGame extends React.Component {
                                         <Button id={n.gid} className="medium ui button pull-right addgameButton" value={n.gid} onClick={this.addgame}>+</Button>
 
                                 }
-                                <h3>{n.name}</h3>
+                                <a style={{ textDecoration: 'none', color:'#fcfcfe' }} href={"https://www.google.com/search?q="+n.name} target="_blank"><h3>{n.name}</h3></a>
                                 <span>Publisher: {n.publisher}</span>
                                 <br/>
                                 <span>Year: {n.year}</span>
